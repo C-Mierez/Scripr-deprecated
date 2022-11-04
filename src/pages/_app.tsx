@@ -5,16 +5,18 @@ import { SessionProvider } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 
 import "../styles/globals.css";
+import Header from "../components/Header";
 
 const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
+    Component,
+    pageProps: { session, ...pageProps },
 }) => {
-  return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
+    return (
+        <SessionProvider session={session}>
+            <Header />
+            <Component {...pageProps} />
+        </SessionProvider>
+    );
 };
 
 export default trpc.withTRPC(MyApp);
