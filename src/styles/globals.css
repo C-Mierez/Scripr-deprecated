@@ -1,16 +1,84 @@
+@font-face {
+    font-family: "Jomhuria";
+    src: url("../styles/fonts/Jomhuria-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+    size-adjust: 180%;
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    src: url("../styles/fonts/FiraMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    src: url("../styles/fonts/FiraMono-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    src: url("../styles/fonts/FiraMono-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Fira Mono, Jomhuria, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
+
+    --color-main-900: #0c041a;
+    --color-secondary-300: #f0d6c2;
+    --color-white: #f7f7f7;
+
+    --padding-side: 2rem;
+    --padding-vertical: 1rem;
+
+    --margin-top: 20vh;
+    --margin-bottom: 7vh;
+
+    --height-header: 4.5rem;
+
+    --font-main: Jomhuria;
+    --font-body: Fira Mono;
+    --main-font-letter-spacing: 0.05em;
+
+    min-height: 100vh;
+    background-color: var(--color-main-900);
+    color: var(--color-white);
+}
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: var(--color-secondary-300);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-main-900);
 }
