@@ -73,6 +73,17 @@
     margin-top: auto;
     margin-bottom: var(--margin-bottom);
     justify-self: flex-end;
+
+    transition: 0.2s ease-in-out;
+}
+
+.arrows:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.arrows:active {
+    transform: scale(0.9);
 }
 
 .section {

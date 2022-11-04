@@ -1,10 +1,17 @@
 import css from "../styles/layout.module.css";
 
 export default function Header() {
+    const scrollToTop = () => {
+        scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
+    };
     return (
         <header className={css.header}>
             <div className={css.section}>
-                <div>Scripr</div>
+                <div onClick={scrollToTop}>Scripr</div>
             </div>
             <div className={css.section}>
                 <div>About</div>
