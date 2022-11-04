@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <header className={css.header}>
             <div className={css.section}>
-                <span>Scripr</span>
+                <div>Scripr</div>
             </div>
             <div className={css.section}>
                 <div>About</div>
