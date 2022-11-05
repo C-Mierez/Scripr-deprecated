@@ -17,6 +17,8 @@
 
     font-size: 1.05rem;
     /* font-weight: bold; */
+
+    transition: 0.3s ease;
 }
 
 .header .section {
@@ -54,19 +56,10 @@
 }
 
 .header .section:last-child {
-    gap: var(--padding-side);
+    gap: calc(var(--padding-side) * 0.6);
 }
 
-.header .section .launch {
-    background-color: var(--color-secondary-300);
-
-    color: var(--color-main-900);
-    font-family: var(--font-body);
-    font-weight: bold;
-    letter-spacing: normal;
-}
-
-.header .section *:hover {
+.header .section :not(.launch):hover {
     cursor: pointer;
     user-select: none;
     background-color: transparent;
@@ -74,7 +67,7 @@
     color: var(--color-secondary-300);
 }
 
-.header .section *:active {
+.header .section :not(.launch):active {
     outline: none;
     color: var(--color-secondary-300);
 
@@ -88,8 +81,46 @@
     outline: none;
 }
 
-.header .section:first-child *:active {
+.header .section:first-child :active {
     color: var(--color-secondary-300);
 
     transform: scale(0.9);
+}
+.launch {
+    background-color: var(--color-secondary-300);
+    border: 0.3vmin solid transparent;
+
+    color: var(--color-main-900);
+    font-family: var(--font-body);
+    font-weight: bold;
+    letter-spacing: normal;
+}
+
+.launch:hover {
+    cursor: pointer;
+    user-select: none;
+
+    background: linear-gradient(var(--color-main-900), var(--color-main-900))
+            padding-box,
+        linear-gradient(
+                130deg,
+                var(--color-accent-500),
+                var(--color-accent-700)
+            )
+            border-box;
+    color: var(--color-white);
+    transition: color 0s;
+}
+
+.launch:active {
+    color: var(--color-white);
+    transform: scale(0.9);
+}
+
+.header.shadow {
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.header.hidden {
+    transform: translateY(-100%);
 }
