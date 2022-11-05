@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function useScrollingUp() {
-    const [scrollingUp, setScrollingUp] = useState(false);
+    const [scrollingUp, setScrollingUp] = useState(true);
 
     useEffect(() => {
         let prevScrollY = window.scrollY;
