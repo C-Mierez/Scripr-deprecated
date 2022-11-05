@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import css from "../styles/index.module.css";
 import { MutableRefObject } from "react";
+import Card from "../components/Card";
 
 export default function HomePage() {
     const scrollToElement = (ref: MutableRefObject<any>) => {
@@ -24,7 +25,8 @@ export default function HomePage() {
                 </div>
                 <div className={`${css.slice} ${css.title}`}>
                     <p>
-                        <span>Analyze</span> your portfolio performance
+                        <span className={css.colored}>Analyze</span> your
+                        portfolio performance
                     </p>
                     <img
                         className={css.arrows}
@@ -37,7 +39,8 @@ export default function HomePage() {
             <div className={css.section} ref={sectionTrack}>
                 <div className={`${css.slice} ${css.title}`}>
                     <p>
-                        <span>Track</span> your open positions
+                        <span className={css.colored}>Track</span> your open
+                        positions
                     </p>
                     <img
                         className={css.arrows}
@@ -47,7 +50,7 @@ export default function HomePage() {
                     />
                 </div>
                 <div className={`${css.slice}`}>
-                    <p>Keep your finances in one single place</p>
+                    <Card />
                 </div>
             </div>
             <div className={css.section} ref={sectionOrganize}>
@@ -56,7 +59,8 @@ export default function HomePage() {
                 </div>
                 <div className={`${css.slice} ${css.title}`}>
                     <p>
-                        <span>Organize</span> into multiple categories
+                        <span className={css.colored}>Organize</span> into
+                        multiple categories
                     </p>
                     <img
                         className={css.arrows}
@@ -69,13 +73,9 @@ export default function HomePage() {
             <div className={css.section} ref={sectionLink}>
                 <div className={`${css.slice} ${css.title}`}>
                     <p>
-                        <span>Link</span> operations from anywhere
+                        <span className={css.colored}>Link</span> operations
+                        from anywhere
                     </p>
-                    <img
-                        className={css.arrows}
-                        src="svg/Arrows.svg"
-                        alt="Arrows"
-                    />
                 </div>
                 <div className={`${css.slice}`}>
                     <p>Keep your finances in one single place</p>

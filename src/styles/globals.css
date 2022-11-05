@@ -38,12 +38,22 @@ body {
 
     --color-main-900: #0c041a;
     --color-secondary-300: #f0d6c2;
+    /* Proper one */
+    /* --color-accent-500: #b8b8ff; */
+    --color-accent-500: #9999ff;
+    --color-accent-700: #49297f;
+    /* --color-accent-500: #5bc3eb;
+    /* Kinda dig this  */
+    /* --color-accent-700: #395756;
+    --color-accent-500: #7de2d1; */
+    /* --color-accent-700: #2c666e;
+    --color-accent-500: #72bda3; */
     --color-white: #f7f7f7;
 
-    --padding-side: 2rem;
+    --padding-side: max(1.8vw, 2rem);
     --padding-vertical: 1rem;
 
-    --margin-top: 20vh;
+    --margin-top: calc(var(--height-header) * 2);
     --margin-bottom: 7vh;
 
     --height-header: 4.5rem;
