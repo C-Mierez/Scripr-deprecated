@@ -1,0 +1,132 @@
+.revealer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+
+    background-color: var(--color-secondary-300);
+    height: 100%;
+    width: 50%;
+    z-index: 40;
+
+    animation: reveal-inner var(--animation-duration) ease-in-out forwards;
+    animation-delay: calc(var(--animation-delay) + 0.2s);
+}
+
+.revealer_inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+
+    background-color: var(--color-accent-700);
+    height: 100%;
+    width: 100%;
+
+    animation: reveal var(--animation-duration) ease-in-out forwards;
+    animation-delay: calc(var(--animation-delay) + 0.1s);
+}
+
+.revealer_inner::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "SCR";
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    font-family: var(--font-main);
+    font-size: 3rem;
+
+    background-color: var(--color-main-900);
+    height: 100%;
+    width: 100%;
+
+    animation: reveal var(--animation-duration) ease-in-out forwards;
+    animation-delay: calc(var(--animation-delay));
+}
+
+.revealer_right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    content: "";
+
+    background-color: var(--color-secondary-300);
+    height: 100%;
+    width: 50%;
+    z-index: 40;
+
+    animation: reveal-inner-right var(--animation-duration) ease-in-out forwards;
+    animation-delay: calc(var(--animation-delay) + 0.2s);
+}
+
+.revealer_inner_right {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+
+    background-color: var(--color-accent-700);
+    height: 100%;
+    width: 100%;
+
+    animation: reveal-right var(--animation-duration) ease-in-out forwards;
+    animation-delay: calc(var(--animation-delay) + 0.1s);
+}
+
+.revealer_inner_right::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "IPR";
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: var(--font-main);
+    font-size: 3rem;
+
+    background-color: var(--color-main-900);
+    height: 100%;
+    width: 100%;
+
+    animation: reveal-right var(--animation-duration) ease-in-out forwards;
+    animation-delay: calc(var(--animation-delay));
+}
+
+@keyframes reveal {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes reveal-inner {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+@keyframes reveal-right {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+@keyframes reveal-inner-right {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
