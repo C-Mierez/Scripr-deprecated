@@ -1,0 +1,99 @@
+.delimiter {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    height: 1px;
+    width: 100%;
+
+    pointer-events: none;
+}
+
+.colored_spacer {
+    pointer-events: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    z-index: 10;
+    isolation: isolate;
+}
+
+.colored_spacer .spacer_1 {
+    content: "";
+    position: absolute;
+    bottom: 0;
+
+    background: var(--color-accent-700);
+    height: 3vh;
+    width: 100%;
+    translate: -100% 0%;
+
+    animation-delay: calc(var(--animation-duration));
+}
+
+.colored_spacer .spacer_2 {
+    content: "";
+    position: absolute;
+    bottom: 3vh;
+    /* right: 0; */
+
+    background-color: var(--color-accent-500);
+    height: 3vh;
+    width: 100%;
+    translate: -100% 0%;
+
+    animation-delay: calc(
+        var(--animation-duration) + var(--animation-duration) * 0.1
+    );
+}
+
+.colored_spacer .spacer_3 {
+    content: "";
+    position: absolute;
+    bottom: 6vh;
+
+    background: var(--color-secondary-300);
+    height: 3vh;
+    width: 100%;
+    translate: -100% 0%;
+
+    animation-delay: calc(
+        var(--animation-duration) + var(--animation-duration) * 0.2
+    );
+}
+
+@keyframes grow {
+    0% {
+        translate: -100% 0%;
+    }
+    100% {
+        translate: 0% 0;
+    }
+}
+
+.grow {
+    animation: grow 1s ease forwards;
+}
+
+.scroll {
+    translate: 0% 0%;
+    animation: slide-up var(--animation-duration) ease-in forwards;
+}
+
+@keyframes slide-up {
+    0% {
+        height: 3vh;
+        translate: 0% 0%;
+    }
+    10% {
+        height: 90vh;
+        translate: 0% 0%;
+    }
+    100% {
+        translate: 0% -190vh;
+    }
+}

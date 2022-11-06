@@ -1,5 +1,19 @@
-.revealer {
+.container {
     position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+
+    height: 100%;
+    width: 100%;
+
+    pointer-events: none;
+    isolation: isolate;
+    z-index: 40;
+}
+
+.revealer {
+    position: absolute;
     top: 0;
     left: 0;
     content: "";
@@ -7,14 +21,13 @@
     background-color: var(--color-secondary-300);
     height: 100%;
     width: 50%;
-    z-index: 40;
 
     animation: reveal-inner var(--animation-duration) ease-in-out forwards;
     animation-delay: calc(var(--animation-delay) + 0.2s);
 }
 
 .revealer_inner {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     content: "";
@@ -28,7 +41,7 @@
 }
 
 .revealer_inner::after {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     content: "SCR";
@@ -49,7 +62,7 @@
 }
 
 .revealer_right {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     content: "";
@@ -57,14 +70,13 @@
     background-color: var(--color-secondary-300);
     height: 100%;
     width: 50%;
-    z-index: 40;
 
     animation: reveal-inner-right var(--animation-duration) ease-in-out forwards;
     animation-delay: calc(var(--animation-delay) + 0.2s);
 }
 
 .revealer_inner_right {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     content: "";
@@ -78,7 +90,7 @@
 }
 
 .revealer_inner_right::after {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     content: "IPR";
