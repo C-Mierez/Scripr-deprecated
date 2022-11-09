@@ -1,4 +1,4 @@
-import css from "../styles/colored_spacer.module.css";
+import css from "../styles/components/colored_spacer.module.css";
 import cssindex from "../styles/index.module.css";
 import { useRef, useEffect, RefObject } from "react";
 

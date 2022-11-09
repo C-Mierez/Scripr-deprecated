@@ -1,5 +1,5 @@
 import { useState } from "react";
-import css from "../styles/index.module.css";
+import css from "../styles/components/card.module.css";
 
 export default function Card() {
     const [subtitle, setSubtitle] = useState("");

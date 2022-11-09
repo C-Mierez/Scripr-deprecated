@@ -24,48 +24,6 @@ export default function HomePage() {
     const scrollableElements = [sectionLanding, sectionBriefing, sectionAbout];
     let scrollableElementIndex = 1;
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             const landing = entries[0];
-    //             const briefing = entries[1];
-
-    //             console.log(landing, briefing);
-
-    //             if (landing == null || briefing == null) {
-    //                 return;
-    //             }
-
-    //             if (landing!.isIntersecting && briefing!.isIntersecting) {
-    //                 if (
-    //                     briefing?.intersectionRatio! <
-    //                     landing?.intersectionRatio!
-    //                 ) {
-    //                     scrollTo({
-    //                         top: sectionBriefing.current!.offsetTop,
-    //                         behavior: "smooth",
-    //                     });
-    //                 } else {
-    //                     scrollTo({
-    //                         top: sectionLanding.current!.offsetTop,
-    //                         behavior: "smooth",
-    //                     });
-    //                 }
-    //             }
-    //         },
-    //         {
-    //             root: null,
-    //             rootMargin: "0px",
-    //         }
-    //     );
-    //     observer.observe(sectionLanding.current!);
-    //     observer.observe(sectionBriefing.current!);
-
-    //     return () => {
-    //         observer.disconnect();
-    //     };
-    // }, []);
-
     return (
         <>
             <>
@@ -97,45 +55,14 @@ export default function HomePage() {
                             performance
                         </p>
                     </AnimationOnScroll>
-                    {/* <div className={css.colored_spacer}></div> */}
                 </div>
                 <ColoredSpacer nextElement={sectionBriefing} />
                 <div className={css.main}>
                     <div className={css.briefing} ref={sectionBriefing}>
-                        <div className={css.section}>
-                            <div className={`${css.slice} ${css.title}`}>
-                                <p>
-                                    <span className={css.colored}>Track</span>{" "}
-                                    your open positions
-                                </p>
-                            </div>
-                            <div className={`${css.slice}`}>
-                                <Card />
-                            </div>
-                        </div>
-                        <div className={css.section}>
-                            <div className={`${css.slice}`}>
-                                <p>Keep your finances in one single place</p>
-                            </div>
-                            <div className={`${css.slice} ${css.title}`}>
-                                <p>
-                                    <span className={css.colored}>
-                                        Organize
-                                    </span>{" "}
-                                    into multiple categories
-                                </p>
-                            </div>
-                        </div>
-                        <div className={css.section}>
-                            <div className={`${css.slice} ${css.title}`}>
-                                <p>
-                                    <span className={css.colored}>Link</span>{" "}
-                                    operations from anywhere
-                                </p>
-                            </div>
-                            <div className={`${css.slice}`}>
-                                <p>Keep your finances in one single place</p>
-                            </div>
+                        Things a nd stuff
+                        <div className={css.grid}>
+                            <Card />
+                            <Card />
                         </div>
                     </div>
                     <div className={css.about} ref={sectionAbout}>
@@ -202,4 +129,42 @@ export default function HomePage() {
             </>
         </>
     );
+}
+
+{
+    /* <div className={css.section}>
+                            <div className={`${css.slice} ${css.title}`}>
+                                <p>
+                                    <span className={css.colored}>Track</span>{" "}
+                                    your open positions
+                                </p>
+                            </div>
+                            <div className={`${css.slice}`}>
+                                <Card />
+                            </div>
+                        </div>
+                        <div className={css.section}>
+                            <div className={`${css.slice}`}>
+                                <p>Keep your finances in one single place</p>
+                            </div>
+                            <div className={`${css.slice} ${css.title}`}>
+                                <p>
+                                    <span className={css.colored}>
+                                        Organize
+                                    </span>{" "}
+                                    into multiple categories
+                                </p>
+                            </div>
+                        </div>
+                        <div className={css.section}>
+                            <div className={`${css.slice} ${css.title}`}>
+                                <p>
+                                    <span className={css.colored}>Link</span>{" "}
+                                    operations from anywhere
+                                </p>
+                            </div>
+                            <div className={`${css.slice}`}>
+                                <p>Keep your finances in one single place</p>
+                            </div>
+                        </div> */
 }

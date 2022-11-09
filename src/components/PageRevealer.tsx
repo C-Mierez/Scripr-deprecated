@@ -1,4 +1,4 @@
-import css from "../styles/revealer.module.css";
+import css from "../styles/components/revealer.module.css";
 
 export default function PageRevealer() {
     return (
