@@ -80,7 +80,6 @@ span.colored {
 }
 
 .landing {
-    scroll-snap-align: start;
     position: relative;
 
     display: flex;
@@ -91,6 +90,8 @@ span.colored {
 
     height: 100vh;
     width: 100%;
+
+    padding-top: calc(var(--height-header) * 3);
 }
 
 .landing * {
@@ -98,13 +99,14 @@ span.colored {
 }
 
 .landing h1 {
-    margin-top: calc(var(--height-header) * 3);
+    /* margin-top: calc(var(--height-header) * 3); */
     line-height: 1em;
 
     font-size: 10vmin;
     font-weight: normal;
     font-family: var(--font-main);
     letter-spacing: var(--main-font-letter-spacing);
+    text-align: center;
 
     color: var(--color-secondary-300);
 }
@@ -113,6 +115,7 @@ span.colored {
     font-weight: normal;
     font-family: var(--font-main);
     letter-spacing: var(--main-font-letter-spacing);
+    text-align: center;
 }
 
 .landing p {
@@ -120,6 +123,8 @@ span.colored {
 
     width: 25vmax;
     margin-top: 15vmin;
+
+    margin-inline: auto;
 }
 
 .landing .background {
@@ -170,27 +175,68 @@ span.colored {
 }
 
 .main {
-    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-stop: none;
 }
 
 .main > * {
-    min-height: 100vh;
-
     padding-top: var(--height-header);
+    width: var(--width-main-responsive);
 }
 
 .briefing {
 }
 .about {
+    height: 100vh;
+}
+
+.other {
+    height: 300vh;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
-    grid-gap: 2vmin;
+    grid-auto-flow: row;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-gap: max(2vmin, 1rem);
+
+    justify-content: space-between;
 
     padding: 0 var(--padding-side);
 
     /* Align grid children in the center */
-    justify-items: center;
+    justify-items: baseline;
+    align-items: center;
+}
+
+.test {
+    background-color: red;
+    aspect-ratio: 1 / 0.5;
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+
+    margin: var(--margin-bottom) 0;
+}
+
+.title * {
+    font-size: 3rem;
+    font-weight: normal;
+    font-family: var(--font-main);
+    letter-spacing: var(--main-font-letter-spacing);
+}
+
+@media (min-width: 990px) {
+    .grid {
+        grid-auto-flow: column;
+    }
+
+    .title {
+        justify-content: flex-start;
+    }
 }

@@ -8,7 +8,8 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: var(--padding-vertical) var(--padding-side);
+    padding: var(--padding-vertical)
+        max(var(--padding-main-content), var(--padding-side));
     width: 100%;
     height: var(--height-header);
     z-index: 500;
@@ -17,7 +18,7 @@
 
     font-size: 1.05rem;
 
-    transition: 0.3s ease;
+    transition: transform 0.3s ease;
     transform: translateY(-100%);
 
     animation: drop-in var(--animation-duration) ease-in-out forwards;

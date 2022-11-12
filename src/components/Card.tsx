@@ -1,13 +1,13 @@
 import { useState } from "react";
 import css from "../styles/components/card.module.css";
 
-export default function Card() {
+export default function Card(props: { title: string; description: string }) {
     const [subtitle, setSubtitle] = useState("");
 
-    const sentence =
-        "See your balance and your profits as the price changes in real time.";
+    // const sentence =
+    //     "See your balance and your profits as the price changes in real time."
 
-    const subtitleWords = sentence.split(" ");
+    const subtitleWords = props.description.split(" ");
 
     const createSubtitle = () => {
         setSubtitle("");
@@ -24,7 +24,7 @@ export default function Card() {
             onMouseLeave={deleteSubtitle}
         >
             <div className={css.card_content}>
-                <h1>Futures</h1>
+                <h1>{props.title}</h1>
                 <p>
                     {subtitleWords.map((word, i) => (
                         <span

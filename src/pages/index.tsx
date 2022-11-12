@@ -59,10 +59,37 @@ export default function HomePage() {
                 <ColoredSpacer nextElement={sectionBriefing} />
                 <div className={css.main}>
                     <div className={css.briefing} ref={sectionBriefing}>
-                        Things a nd stuff
+                        <div className={css.title}>
+                            <h2>
+                                <span className={css.colored}>Track</span> your
+                                operations
+                            </h2>
+                        </div>
                         <div className={css.grid}>
-                            <Card />
-                            <Card />
+                            <Card
+                                title="Spot"
+                                description="Your purchased assets and their price in real time."
+                            />
+                            <Card
+                                title="Leverage"
+                                description="Your leveraged positions and their PnL."
+                            />
+                            <Card
+                                title="NFTs"
+                                description="Your profits on NFT flipping."
+                            />
+                        </div>
+                        <div className={css.title}>
+                            <h2>
+                                <span className={css.colored}>Organize</span>{" "}
+                                your expenses
+                            </h2>
+                        </div>
+                        <div className={css.title}>
+                            <h2>
+                                <span className={css.colored}>Link</span>{" "}
+                                everything you want
+                            </h2>
                         </div>
                     </div>
                     <div className={css.about} ref={sectionAbout}>
@@ -125,6 +152,66 @@ export default function HomePage() {
                             asperiores sunt placeat quia ducimus? Numquam, odit!
                         </p>
                     </div>
+                </div>
+                <div className={css.other}>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+                    fugit ad reiciendis voluptas obcaecati, iure nisi
+                    dignissimos dolores hic mollitia ea, odio ut autem officia
+                    iste maiores. Perferendis et, totam expedita laudantium
+                    exercitationem iste eum quo hic quae nobis odit velit, natus
+                    debitis ducimus numquam illo eaque nesciunt a dolore
+                    sapiente commodi? Earum sit aut, repellat officiis similique
+                    enim provident deleniti labore quae laudantium ducimus fuga?
+                    Veritatis minima nihil id autem quia repudiandae ab sit
+                    rerum voluptates voluptatem assumenda tenetur ex iure
+                    accusantium, et, dolor, voluptatum quasi vel beatae omnis?
+                    Ea voluptates vel accusamus deleniti earum minus inventore
+                    non quo. Animi doloremque nisi repellat incidunt eos qui
+                    suscipit nam cumque. Aspernatur amet fugiat, dolore
+                    quibusdam nostrum nemo. Fugit numquam vitae aliquid corporis
+                    cupiditate veniam a autem aut quidem, minus expedita?
+                    Debitis placeat alias ratione suscipit fuga temporibus
+                    maiores, at delectus. Nobis molestiae et vitae eligendi
+                    labore reiciendis quaerat animi accusamus quae ad adipisci
+                    ullam, quia maxime error iste aliquam facilis! Totam eveniet
+                    laboriosam quos nulla, corrupti error, mollitia quia minus
+                    excepturi laborum quidem nihil autem repellendus dolorum
+                    aperiam porro cum maiores? Minima ea exercitationem magni
+                    ullam eaque corrupti, velit, modi excepturi aut cumque
+                    explicabo voluptatem voluptates totam delectus est sapiente!
+                    Dolor quos explicabo neque optio eaque ipsum dolore,
+                    deserunt aperiam accusamus nam rem culpa, necessitatibus,
+                    perferendis quasi magni corrupti earum aspernatur commodi.
+                    Corporis magnam, aperiam exercitationem officia enim non
+                    voluptatem eveniet. Tempore quas nihil quae voluptatem ad
+                    quaerat suscipit accusamus nobis commodi placeat illum
+                    consequatur, necessitatibus quasi non tenetur. Voluptatum,
+                    exercitationem? Repellat earum asperiores nam autem sunt
+                    fuga, iure deserunt porro sint alias magnam natus velit odio
+                    ratione et illum commodi voluptas numquam nulla possimus
+                    aperiam vel officiis. Dolore id ipsa assumenda corporis
+                    maxime, itaque ratione temporibus aut sequi voluptatum
+                    consequatur accusamus perspiciatis molestiae eum eligendi
+                    laudantium. Eius, odit velit facere ut voluptatibus optio
+                    labore nobis rerum voluptas deleniti neque, placeat ab error
+                    ratione explicabo! Numquam magnam fugiat corrupti quisquam
+                    eos in placeat. Iusto beatae nostrum ab ex earum, nisi eaque
+                    eos mollitia! Natus obcaecati similique modi corrupti sint
+                    illum minima fuga iste dicta, veniam quibusdam nesciunt
+                    velit commodi sapiente cum saepe necessitatibus, a nostrum
+                    perspiciatis quas et esse libero. Accusantium, ducimus.
+                    Temporibus ab sint atque rem, a accusamus maxime id earum
+                    provident dolore, ut delectus suscipit impedit possimus
+                    omnis in cumque, reprehenderit ratione dicta error rerum
+                    iste nesciunt? Explicabo, tempore. Obcaecati corrupti quidem
+                    expedita repudiandae vel quibusdam culpa quaerat quam,
+                    eligendi quo et nisi, facilis qui, ad quis debitis doloribus
+                    saepe ratione veritatis possimus? Aspernatur dicta sint et
+                    est? Sint corporis sed, totam dolorem eum mollitia quo quis
+                    quas distinctio dignissimos corrupti veniam iusto
+                    reiciendis. Similique et fugiat dolorum quis quibusdam
+                    omnis, nemo nesciunt provident assumenda fuga dicta minima
+                    officia eius autem velit ad recusandae.
                 </div>
             </>
         </>

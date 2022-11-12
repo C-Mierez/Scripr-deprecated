@@ -32,10 +32,11 @@
 
 html {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100vh;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    scroll-snap-stop: normal;
 }
 
 body {
@@ -89,6 +90,13 @@ body {
     --margin-bottom: 5vh;
 
     --height-header: 4.5rem;
+
+    --width-main-responsive: min(
+        var(--width-main-content),
+        calc(100vw - 2 * var(--padding-side))
+    );
+    --width-main-content: 1200px;
+    --padding-main-content: calc((100vw - var(--width-main-content)) * 0.5);
 
     --font-main: Jomhuria;
     --font-body: Fira Mono;
