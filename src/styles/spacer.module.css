@@ -1,0 +1,53 @@
+.spacer_container {
+    height: 9vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+}
+
+.spacer1 {
+    height: 3vh;
+    background-color: var(--color-secondary-300);
+
+    width: 0;
+
+    animation: slideInLeft var(--animation-duration) ease forwards;
+
+    animation-delay: calc(
+        var(--animation-duration) + var(--animation-duration) * 0.2
+    );
+}
+.spacer2 {
+    height: 3vh;
+    background-color: var(--color-accent-500);
+
+    width: 0;
+
+    animation: slideInLeft var(--animation-duration) ease forwards;
+
+    animation-delay: calc(
+        var(--animation-duration) + var(--animation-duration) * 0.1
+    );
+}
+.spacer3 {
+    height: 3vh;
+    background-color: var(--color-accent-700);
+
+    width: 0;
+
+    animation: slideInLeft var(--animation-duration) ease forwards;
+
+    animation-delay: calc(
+        var(--animation-duration) + var(--animation-duration) * 0
+    );
+}
+
+@keyframes slideInLeft {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
