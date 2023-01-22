@@ -43,7 +43,7 @@ export default function Spacer() {
             ></div>
             <div
                 data-scroll
-                data-scroll-speed="5.25"
+                data-scroll-speed="6.25"
                 data-scroll-position="top"
                 data-scroll-target="#container"
                 className={css.spacer2}
@@ -51,12 +51,12 @@ export default function Spacer() {
             ></div>
             <div
                 data-scroll
-                data-scroll-speed="6.5"
+                data-scroll-speed="7"
                 data-scroll-position="top"
                 data-scroll-target="#container"
                 className={css.spacer3}
                 style={{
-                    height: `calc(4vh * ${heightFactor})`,
+                    height: `calc(3.5vh * ${heightFactor})`,
                 }}
             ></div>
         </div>

@@ -109,12 +109,6 @@ span.colored {
     width: var(--width-main-responsive);
 }
 
-.briefing {
-}
-.about {
-    height: 100vh;
-}
-
 .grid {
     display: grid;
     grid-auto-flow: row;
