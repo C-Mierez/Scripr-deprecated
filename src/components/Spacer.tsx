@@ -1,6 +1,6 @@
 import css from "../styles/spacer.module.css";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Spacer() {
     const { scroll } = useLocomotiveScroll();
@@ -53,7 +53,7 @@ export default function Spacer() {
                 ></div>
                 <div
                     data-scroll
-                    data-scroll-speed="3.5"
+                    data-scroll-speed="3"
                     data-scroll-position="top"
                     data-scroll-target="#container"
                     className={css.spacer3}
