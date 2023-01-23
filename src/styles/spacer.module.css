@@ -1,53 +1,90 @@
 .spacer_container {
-    height: 9vh;
-    width: 100%;
+    width: 0%;
     position: absolute;
     bottom: 0;
-    z-index: 2;
-}
 
-.spacer1 {
-    height: 3vh;
-    background-color: var(--color-secondary-300);
+    background-color: var(--color-accent-800);
 
-    width: 0;
-
-    animation: slideInLeft var(--animation-duration) ease forwards;
+    animation: expandLeft var(--animation-duration) ease forwards;
 
     animation-delay: calc(
         var(--animation-duration) + var(--animation-duration) * 0.2
     );
 }
+
+.spacer1 {
+    height: 3vh;
+    background-color: var(--color-secondary-300);
+}
+
 .spacer2 {
     height: 3vh;
     background-color: var(--color-accent-500);
 
-    width: 0;
-
-    animation: slideInLeft var(--animation-duration) ease forwards;
+    animation: expandLeft2 var(--animation-duration) ease-out forwards;
 
     animation-delay: calc(
-        var(--animation-duration) + var(--animation-duration) * 0.1
+        var(--animation-duration) + var(--animation-duration) * 0.3
     );
 }
+
+@keyframes expandLeft2 {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 125%;
+    }
+}
+
 .spacer3 {
     height: 3vh;
     background-color: var(--color-accent-700);
 
-    width: 0;
-
-    animation: slideInLeft var(--animation-duration) ease forwards;
+    animation: expandLeft3 var(--animation-duration) ease-out forwards;
 
     animation-delay: calc(
-        var(--animation-duration) + var(--animation-duration) * 0
+        var(--animation-duration) + var(--animation-duration) * 0.4
     );
 }
 
-@keyframes slideInLeft {
+@keyframes expandLeft3 {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 175%;
+    }
+}
+
+@keyframes expandLeft {
     0% {
         width: 0%;
     }
     100% {
         width: 100%;
     }
+}
+
+.spacer4 {
+    height: 3vh;
+    background-color: var(--color-accent-900);
+    width: 100%;
+}
+
+.shape {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.shape svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 55px;
+}
+
+.shape .shape_fill {
+    fill: var(--color-accent-900);
 }
