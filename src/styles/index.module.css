@@ -97,16 +97,12 @@ span.colored {
     width: 100%;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-snap-stop: none;
-}
-
-.main > * {
+.briefing,
+.about {
     padding-top: var(--height-header);
     width: var(--width-main-responsive);
+
+    margin: 0 auto;
 }
 
 .grid {
@@ -134,7 +130,7 @@ span.colored {
     display: flex;
     justify-content: center;
 
-    margin: var(--margin-bottom) 0;
+    margin-bottom: var(--margin-bottom) 0;
 }
 
 .title * {
