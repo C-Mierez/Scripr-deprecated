@@ -1,5 +1,6 @@
 .spacer_container {
     width: 0%;
+    overflow-x: hidden;
     position: absolute;
     bottom: 0;
 
@@ -20,41 +21,11 @@
 .spacer2 {
     height: 3vh;
     background-color: var(--color-accent-500);
-
-    animation: expandLeft2 var(--animation-duration) ease-out forwards;
-
-    animation-delay: calc(
-        var(--animation-duration) + var(--animation-duration) * 0.3
-    );
-}
-
-@keyframes expandLeft2 {
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: 125%;
-    }
 }
 
 .spacer3 {
     height: 3vh;
     background-color: var(--color-accent-700);
-
-    animation: expandLeft3 var(--animation-duration) ease-out forwards;
-
-    animation-delay: calc(
-        var(--animation-duration) + var(--animation-duration) * 0.4
-    );
-}
-
-@keyframes expandLeft3 {
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: 175%;
-    }
 }
 
 @keyframes expandLeft {
