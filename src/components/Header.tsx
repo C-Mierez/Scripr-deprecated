@@ -2,8 +2,6 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 import css from "../styles/layout.module.css";
 import { RefObject, useEffect, useState } from "react";
 
-function isActiveSection() {}
-
 export default function Header(props: {
     sectionRefs: RefObject<HTMLDivElement>[];
 }) {
@@ -35,7 +33,7 @@ export default function Header(props: {
                         // window.screen.height -
                         props.sectionRefs[
                             minIndex
-                        ]!?.current?.getClientRects()[0]!.top!
+                        ]?.current?.getClientRects()[0]!.top!
                     );
                     let currDistance = Math.abs(
                         // window.screen.height -
