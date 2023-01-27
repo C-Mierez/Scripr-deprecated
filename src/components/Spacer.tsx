@@ -39,7 +39,6 @@ export default function Spacer() {
                     data-scroll-speed="1.25"
                     data-scroll-position="top"
                     data-scroll-target="#container"
-                    data-scroll-call
                     className={css.spacer1}
                     style={{ height: `calc(3vh * ${heightFactor})` }}
                 ></div>

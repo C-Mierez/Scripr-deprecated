@@ -5,7 +5,6 @@ import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { AppType } from "next/app";
 
-import Header from "../components/Header";
 import { trpc } from "../utils/trpc";
 
 const MyApp: AppType<{ session: Session | null }> = ({
@@ -14,7 +13,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
     return (
         <SessionProvider session={session}>
-            <Header />
             <Component {...pageProps} />
         </SessionProvider>
     );
