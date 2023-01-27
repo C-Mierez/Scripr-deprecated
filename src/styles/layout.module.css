@@ -65,6 +65,7 @@
     padding: 0 0.8em;
     border-radius: 0.6rem;
     height: 90%;
+    cursor: pointer;
 
     transition: 0.1s ease-in-out;
 }
@@ -85,8 +86,7 @@
     gap: calc(var(--padding-side) * 0.6);
 }
 
-.header .section :not(.launch):hover {
-    cursor: pointer;
+.header .section :not(.launch):hover:not(.active):hover {
     user-select: none;
     background-color: transparent;
     outline: 2px solid var(--color-secondary-300);
@@ -149,4 +149,32 @@
 
 .header.hidden {
     transform: translateY(-100%);
+}
+
+.header .active {
+    position: relative;
+}
+
+.header .active::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 5%;
+    width: 100%;
+    background: var(--color-secondary-300);
+
+    animation: fadeInGrow calc(var(--animation-duration) * 0.5) ease-in-out
+        forwards;
+}
+
+@keyframes fadeInGrow {
+    0% {
+        height: 0%;
+        opacity: 0;
+    }
+    100% {
+        height: 5%;
+        opacity: 1;
+    }
 }

@@ -98,7 +98,8 @@ span.colored {
 }
 
 .briefing,
-.about {
+.about,
+.contact {
     padding-top: var(--height-header);
     width: var(--width-main-responsive);
 
@@ -233,4 +234,26 @@ span.colored {
 .advance_button:active {
     transform: scale(0.9);
     outline-width: 0;
+}
+
+.fadeIn {
+    animation: fadeIn calc(var(--animation-duration) * 0.2) ease-in forwards;
+    animation-delay: calc(var(--animation-duration));
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.placeholder {
+    height: 300px;
+    width: 300px;
+    margin: 200px auto;
+    background-color: var(--color-secondary-300);
 }

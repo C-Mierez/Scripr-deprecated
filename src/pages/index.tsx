@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, RefObject } from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import {
     LocomotiveScrollProvider,
@@ -9,9 +9,20 @@ import Card from "../components/Card";
 import PageRevealer from "../components/PageRevealer";
 import Spacer from "../components/Spacer";
 import css from "../styles/index.module.css";
+import Header from "../components/Header";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
+    const sectionLanding = useRef<HTMLDivElement>(null);
+    const sectionBriefing = useRef<HTMLDivElement>(null);
+    const sectionAbout = useRef<HTMLDivElement>(null);
+    const sectionContact = useRef<HTMLDivElement>(null);
+    const sectionRefs = [
+        sectionLanding,
+        sectionBriefing,
+        sectionAbout,
+        sectionContact,
+    ];
     return (
         <>
             <PageRevealer />
@@ -30,14 +41,15 @@ export default function LocomotiveHomePage() {
                 watch={[]}
                 containerRef={mainRef}
             >
+                <Header sectionRefs={sectionRefs} />
                 <main data-scroll-container ref={mainRef}>
-                    <Landing />
+                    <Landing sectionRefs={sectionRefs} />
                 </main>
             </LocomotiveScrollProvider>
         </>
     );
 }
-export function Landing() {
+export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
     const { scroll } = useLocomotiveScroll();
 
     const scrollSmoothNextElement = () => {
@@ -51,11 +63,20 @@ export function Landing() {
         }
     };
 
-    const sectionLanding = useRef<HTMLDivElement>(null);
-    const sectionBriefing = useRef<HTMLDivElement>(null);
-    const sectionAbout = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (scroll) {
+            scroll.on("scroll", (instance: any) => {
+                // console.log(instance.scroll.y);
+                // Update
+            });
+        }
 
-    const scrollableElements = [sectionLanding, sectionBriefing, sectionAbout];
+        return () => {
+            if (scroll) scroll.destroy();
+        };
+    }, [scroll]);
+
+    const scrollableElements = props.sectionRefs;
     let scrollableElementIndex = 1;
 
     return (
@@ -75,30 +96,31 @@ export function Landing() {
                         </svg>
                     </div>
                 </div>
-                <div
+                <section
                     className={css.landing}
                     data-scroll-section
-                    ref={sectionLanding}
+                    ref={props.sectionRefs[0]}
                 >
                     <div className={css.background}></div>
                     <h1>All your Finances</h1>
                     <h2>in one single place</h2>
-                    <AnimationOnScroll animateIn="animate__fadeInUp">
-                        <p>
-                            A tool in which to{" "}
-                            <span className={css.colored}>manage</span> your
-                            assets and{" "}
-                            <span className={css.colored}>visualize</span> their
-                            performance
-                        </p>
-                    </AnimationOnScroll>
-                </div>
+                    <p
+                        data-scroll
+                        data-scroll-repeat="true"
+                        data-scroll-class={css.fadeIn}
+                    >
+                        A tool in which to{" "}
+                        <span className={css.colored}>manage</span> your assets
+                        and <span className={css.colored}>visualize</span> their
+                        performance
+                    </p>
+                </section>
                 <Spacer />
 
                 <section
                     className={css.briefing}
                     data-scroll-section
-                    ref={sectionBriefing}
+                    ref={props.sectionRefs[1]}
                 >
                     <div className={css.title}>
                         <h2>
@@ -136,7 +158,7 @@ export function Landing() {
                 <section
                     className={css.about}
                     data-scroll-section
-                    ref={sectionAbout}
+                    ref={props.sectionRefs[2]}
                 >
                     <h1>About</h1>
                     <p>
@@ -156,43 +178,81 @@ export function Landing() {
                         exercitationem obcaecati mollitia consequuntur deleniti
                         optio. Excepturi iure hic quia sequi natus alias dolorem
                         sapiente repudiandae quam numquam enim, non consequatur.
+                    </p>
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </section>
+                <section
+                    className={css.contact}
+                    data-scroll-section
+                    ref={props.sectionRefs[3]}
+                >
+                    <h1>Contact</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Quos dolorum blanditiis laborum. Aliquam neque sed
+                        eaque ea accusamus tenetur, fuga, molestias adipisci
+                        unde perspiciatis sunt asperiores tempora illum quis
+                        officiis maiores! Recusandae reprehenderit repudiandae
+                        accusantium atque, accusamus dolore tempora eius est
+                        consectetur magnam sequi vitae modi similique tempore
+                        commodi velit quos quia exercitationem facilis sapiente
+                        error fuga qui debitis sed. Maxime accusamus perferendis
+                        inventore, iure eos dolore iusto sequi in ratione soluta
+                        fugit architecto repellat. Repellat quos adipisci
+                        laudantium incidunt voluptate. Quo voluptas quasi
+                        suscipit amet quod quis, ipsam laborum aut officiis
+                        exercitationem obcaecati mollitia consequuntur deleniti
+                        optio. Excepturi iure hic quia sequi natus alias dolorem
+                        sapiente repudiandae quam numquam enim, non consequatur.
                         Sequi adipisci dolore illo nisi hic amet ratione fuga
                         perferendis, voluptatum, incidunt corporis maxime
-                        eveniet itaque assumenda dolorum expedita earum magnam,
-                        unde vitae quasi excepturi autem quidem reprehenderit.
-                        Inventore perspiciatis labore aut, temporibus assumenda
-                        porro quisquam voluptatum quam eum, autem cupiditate,
-                        deserunt id unde! Rerum praesentium ipsa aperiam commodi
-                        dolorum amet iusto quae, placeat illum, veritatis
-                        sapiente laboriosam nihil excepturi accusamus vero
-                        delectus consequatur doloribus odit cumque nostrum
-                        labore. Velit dolor repellat non quae perspiciatis
-                        cupiditate pariatur deserunt laborum rem ea ullam
-                        doloribus aspernatur autem, eaque tenetur nostrum
-                        soluta, suscipit quos, voluptate iure. Deleniti sint
-                        odit cum deserunt repellat asperiores id! Ipsam
-                        blanditiis sequi quaerat assumenda, praesentium id
-                        maiores, quidem doloribus fugit aut aliquid, dolores
-                        magnam perferendis labore corrupti. Aspernatur veritatis
-                        odit aut? Beatae ipsum temporibus quae deleniti culpa
-                        praesentium optio laborum adipisci, quisquam excepturi
-                        illo reprehenderit dignissimos asperiores aliquam,
-                        quibusdam ullam porro eveniet! Vitae veritatis
-                        recusandae odit dolore accusamus. Maxime, at? Voluptatum
-                        esse beatae deserunt ipsa quo ad libero dicta ipsum
-                        aspernatur? Totam voluptate excepturi praesentium eos
-                        asperiores repellat placeat quaerat sint numquam
-                        consectetur beatae, non, dolor ullam quis animi sequi
-                        cumque! Amet deleniti nostrum nemo facere dolore
-                        consequatur, accusantium voluptas, iusto libero tenetur
-                        ullam dolor architecto quod, distinctio totam aliquid
-                        dolores maiores quasi vero saepe temporibus! Minima,
-                        laboriosam laudantium cumque voluptas, voluptatem nisi
-                        beatae reiciendis dicta recusandae omnis vero sit.
-                        Expedita reiciendis sapiente cumque repellendus quas
-                        aut, inventore asperiores sunt placeat quia ducimus?
-                        Numquam, odit!
+                        eveniet itaque assumenda dolorum expedita earum magnam
                     </p>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </section>
             </>
         </>
