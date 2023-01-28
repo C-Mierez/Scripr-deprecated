@@ -8,13 +8,23 @@ export default function Header(props: {
     const { scroll } = useLocomotiveScroll();
     const [currentActiveRefIndex, setCurrentActiveRefIndex] =
         useState<number>(0);
+    const [isScrolling, setIsScrolling] = useState<boolean>(false);
     let currentDelta = 0;
     let activeRefIndex = 0;
+    let scrolling = false;
 
     useEffect(() => {
         if (scroll) {
             scroll.on("scroll", (instance: any) => {
                 // // console.log("Start of call ", instance);
+
+                if (Math.abs(instance.delta.y - instance.scroll.y) < 1) {
+                    scrolling = false;
+                    setIsScrolling(false);
+                } else if (!scrolling) {
+                    scrolling = true;
+                    setIsScrolling(true);
+                }
 
                 // Only run calculation when Delta changes. Scroll value (smoothing) doesn't matter
                 if (currentDelta === instance.delta.y) return;
@@ -68,7 +78,11 @@ export default function Header(props: {
     }, [scroll]);
 
     return (
-        <header className={`${css.header} ${css.shadow}`}>
+        <header
+            className={`${css.header} ${css.shadow} ${
+                isScrolling ? css.hide : css.show
+            }`}
+        >
             <div className={css.section}>
                 <div
                     onClick={() => {

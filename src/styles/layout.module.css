@@ -178,3 +178,14 @@
         opacity: 1;
     }
 }
+
+.hide {
+    transition: opacity 0.1s ease !important;
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+.show {
+    transition: opacity 0.3s ease !important;
+    opacity: 1 !important;
+}
