@@ -86,7 +86,7 @@
     gap: calc(var(--padding-side) * 0.6);
 }
 
-.header .section :not(.launch):hover:not(.active):hover {
+.header .section:not(:first-child) :not(.launch):hover:not(.active):hover {
     user-select: none;
     background-color: transparent;
     outline: 2px solid var(--color-secondary-300);
