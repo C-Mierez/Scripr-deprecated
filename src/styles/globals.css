@@ -74,6 +74,7 @@ body {
     --color-accent-500: #a39e9e; */
 
     --color-white: #f7f7f7;
+    --color-grey: #c6c6c6;
 
     --gradient-normal: linear-gradient(
         130deg,
