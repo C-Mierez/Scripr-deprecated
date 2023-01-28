@@ -30,12 +30,14 @@ export default function LocomotiveHomePage() {
                 options={{
                     smooth: true,
                     lerp: 0.05,
-                    multiplier: 0.8,
+                    multiplier: 0.9,
                     smartphone: {
                         smooth: true,
+                        multiplier: 1.2,
                     },
                     tablet: {
                         smooth: true,
+                        multiplier: 1.2,
                     },
                 }}
                 watch={[]}
