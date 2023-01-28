@@ -5,19 +5,17 @@ import { useEffect, useState } from "react";
 export default function Spacer() {
     const { scroll } = useLocomotiveScroll();
 
-    const [heightFactor, setHeightFactor] = useState<number>(1);
+    const [progressFactor, setProgressFactor] = useState<number>(1);
 
     useEffect(() => {
         if (scroll) {
             // Subscribe to the scroll event
             scroll.on("scroll", (instance: any) => {
                 // Avoid unnecessary calculations if there are no elements in view
-                if (Object.keys(instance.currentElements).length > 0)
-                    // Calculate the height factor
-
-                    setHeightFactor(
-                        1 + (instance.scroll.y / instance.limit.y) * 13
-                    );
+                if (Object.keys(instance.currentElements).length > 0) {
+                    // Calculate the progress factor
+                    setProgressFactor(instance.scroll.y / instance.limit.y);
+                }
             });
         }
         return () => {
@@ -33,31 +31,36 @@ export default function Spacer() {
                 id="container"
                 data-scroll-section
                 className={css.spacer_container}
+                style={{ height: `calc(9dvh * ${progressFactor * 28 + 1})` }}
             >
                 <div
                     data-scroll
-                    data-scroll-speed="1.25"
                     data-scroll-position="top"
-                    data-scroll-target="#container"
                     className={css.spacer1}
-                    style={{ height: `calc(3vh * ${heightFactor})` }}
-                ></div>
-                <div
-                    data-scroll
-                    data-scroll-speed="2.25"
-                    data-scroll-position="top"
                     data-scroll-target="#container"
-                    className={css.spacer2}
-                    style={{ height: `calc(3vh * ${heightFactor})` }}
-                ></div>
-                <div
-                    data-scroll
-                    data-scroll-speed="3"
-                    data-scroll-position="top"
-                    data-scroll-target="#container"
-                    className={css.spacer3}
+                    data-scroll-speed="0.1"
                     style={{
-                        height: `calc(3.5vh * ${heightFactor})`,
+                        height: `calc(3dvh * ${progressFactor * 10 + 1})`,
+                    }}
+                ></div>
+                <div
+                    data-scroll
+                    data-scroll-position="top"
+                    className={css.spacer2}
+                    data-scroll-target="#container"
+                    data-scroll-speed="0.3"
+                    style={{
+                        height: `calc(3dvh * ${progressFactor * 16 + 1})`,
+                    }}
+                ></div>
+                <div
+                    data-scroll
+                    data-scroll-position="top"
+                    className={css.spacer3}
+                    data-scroll-target="#container"
+                    data-scroll-speed="0.6"
+                    style={{
+                        height: `calc(3dvh * ${progressFactor * 24 + 1})`,
                     }}
                 ></div>
             </div>

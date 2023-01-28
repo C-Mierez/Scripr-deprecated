@@ -179,16 +179,12 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                         optio. Excepturi iure hic quia sequi natus alias dolorem
                         sapiente repudiandae quam numquam enim, non consequatur.
                     </p>
-
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
                 </section>
                 <section
                     className={css.contact}
@@ -217,21 +213,9 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                         perferendis, voluptatum, incidunt corporis maxime
                         eveniet itaque assumenda dolorum expedita earum magnam
                     </p>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
+                    <div className={css.placeholder}></div>
                     <br />
                     <br />
                     <br />

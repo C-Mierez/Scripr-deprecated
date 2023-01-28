@@ -1,8 +1,12 @@
 .spacer_container {
     width: 0%;
-    overflow-x: hidden;
     position: absolute;
     bottom: 0;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
 
     background-color: var(--color-accent-800);
 
@@ -13,18 +17,25 @@
     );
 }
 
+.spacer_container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
 .spacer1 {
     height: 3vh;
+    height: 3dvh;
     background-color: var(--color-secondary-300);
 }
 
 .spacer2 {
     height: 3vh;
+    height: 3dvh;
     background-color: var(--color-accent-500);
 }
 
 .spacer3 {
     height: 3vh;
+    height: 3dvh;
     background-color: var(--color-accent-700);
 }
 
@@ -39,6 +50,7 @@
 
 .spacer4 {
     height: 3vh;
+    height: 3dvh;
     background-color: var(--color-accent-900);
     width: 100%;
 }
