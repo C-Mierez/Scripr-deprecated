@@ -104,6 +104,7 @@ body {
     --font-main: Jomhuria;
     --font-body: Fira Mono;
     --main-font-letter-spacing: 0.02em;
+    --main-font-line-height: 1.2em;
 
     min-height: 100vh;
     background-color: var(--color-main-900);
