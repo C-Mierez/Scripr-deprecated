@@ -106,6 +106,15 @@ span.colored {
     margin: 0 auto;
 }
 
+.briefing {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .grid {
     display: grid;
     grid-auto-flow: row;
@@ -115,39 +124,93 @@ span.colored {
     justify-content: space-between;
 
     padding: 0 var(--padding-side);
-
-    /* Align grid children in the center */
-    justify-items: baseline;
-    align-items: center;
-}
-
-.test {
-    background-color: red;
-    aspect-ratio: 1 / 0.5;
-    width: 100%;
 }
 
 .title {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 
+    margin-top: var(--margin-top);
     margin-bottom: var(--margin-bottom) 0;
 }
 
-.title * {
+.title h2 {
+    display: block;
+    text-align: center;
     font-size: 3rem;
     font-weight: normal;
     font-family: var(--font-main);
     letter-spacing: var(--main-font-letter-spacing);
+    line-height: var(--main-font-line-height);
+}
+
+.ellipsis {
+    position: relative;
+    background-color: var(--color-accent-700);
+    aspect-ratio: 1;
+    width: 0.5rem;
+    border-radius: 100%;
+    margin: 0 0.5rem;
+}
+
+.title .ellipsis {
+    margin: 0.5em 0;
+}
+
+.ellipsis::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background-color: var(--color-secondary-300);
+    aspect-ratio: 1;
+    width: 0.5rem;
+    border-radius: 100%;
+    margin: 0 0.5rem;
+}
+
+.ellipsis::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: var(--color-accent-800);
+    aspect-ratio: 1;
+    width: 0.5rem;
+    border-radius: 100%;
+    margin: 0 0.5rem;
+}
+
+.description {
+    margin-top: calc(var(--margin-top) * 0.2);
+    margin-bottom: calc(var(--margin-top) * 0.5);
+    width: 50%;
+}
+
+.description p {
+    text-align: center;
+    color: var(--color-grey);
 }
 
 @media (min-width: 990px) {
     .grid {
         grid-auto-flow: column;
+        padding: 0 0;
     }
-
+}
+@media (max-width: 990px) {
+    .grid {
+        padding: 0 0;
+    }
+}
+@media (max-width: 500px) {
+    .description {
+        width: 100%;
+    }
     .title {
-        justify-content: flex-start;
+        margin-top: 0;
     }
 }
 
