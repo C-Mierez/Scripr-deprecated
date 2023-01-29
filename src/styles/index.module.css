@@ -11,7 +11,8 @@ span.colored {
     justify-content: flex-start;
     align-items: center;
 
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
 
     padding-top: calc(var(--height-header) * 3);
@@ -196,7 +197,7 @@ span.colored {
 @keyframes foldDown {
     0% {
         opacity: 0;
-        translate: 0 -50%;
+        translate: 0 -30%;
     }
     100% {
         opacity: 1;
