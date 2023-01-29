@@ -49,6 +49,8 @@ export const Card2 = React.forwardRef<
     );
 });
 
+Card2.displayName = "Card2";
+
 export default function Card(props: { title: string; description: string }) {
     const [subtitle, setSubtitle] = useState("");
 
