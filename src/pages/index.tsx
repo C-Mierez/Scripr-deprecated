@@ -36,11 +36,13 @@ export default function LocomotiveHomePage() {
                     smartphone: {
                         smooth: true,
                         multiplier: 3,
+                        touchMultiplier: 3,
                         lerp: 0.1,
                     },
                     tablet: {
                         smooth: true,
                         multiplier: 3,
+                        touchMultiplier: 3,
                         lerp: 0.1,
                     },
                 }}
