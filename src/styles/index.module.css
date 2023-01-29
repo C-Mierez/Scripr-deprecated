@@ -29,6 +29,7 @@ span.colored {
     font-weight: normal;
     font-family: var(--font-main);
     letter-spacing: var(--main-font-letter-spacing);
+    line-height: var(--main-font-line-height);
     text-align: center;
 
     color: var(--color-secondary-300);
@@ -39,6 +40,21 @@ span.colored {
     font-family: var(--font-main);
     letter-spacing: var(--main-font-letter-spacing);
     text-align: center;
+}
+
+@media (max-width: 600px) {
+    .landing {
+        padding-top: calc(var(--height-header) * 2);
+    }
+
+    .landing h1 {
+        font-size: 4rem;
+    }
+    .landing h2 {
+        margin-top: 2.5rem;
+        font-size: 2.5rem;
+        line-height: 1em;
+    }
 }
 
 .landing p {
@@ -157,17 +173,19 @@ span.colored {
     padding: 0 var(--padding-side);
 }
 
-.grid > *:nth-child(1) {
-    animation-delay: calc(var(--animation-duration) * 0.4);
-}
-.grid > *:nth-child(2) {
-    animation-delay: calc(var(--animation-duration) * 0.6);
-}
-.grid > *:nth-child(3) {
-    animation-delay: calc(var(--animation-duration) * 0.8);
-}
-.grid > *:nth-child(4) {
-    animation-delay: calc(var(--animation-duration) * 1);
+@media (min-width: 600px) {
+    .grid > *:nth-child(1) {
+        animation-delay: calc(var(--animation-duration) * 0.4);
+    }
+    .grid > *:nth-child(2) {
+        animation-delay: calc(var(--animation-duration) * 0.6);
+    }
+    .grid > *:nth-child(3) {
+        animation-delay: calc(var(--animation-duration) * 0.8);
+    }
+    .grid > *:nth-child(4) {
+        animation-delay: calc(var(--animation-duration) * 1);
+    }
 }
 
 .foldDown {
