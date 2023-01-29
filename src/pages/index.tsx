@@ -1,15 +1,17 @@
-import { useRef, useEffect, RefObject } from "react";
+import { useRef, useEffect, RefObject, useState } from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import {
     LocomotiveScrollProvider,
     useLocomotiveScroll,
 } from "react-locomotive-scroll";
 
-import Card from "../components/Card";
+import Card, { Card2 } from "../components/Card";
 import PageRevealer from "../components/PageRevealer";
 import Spacer from "../components/Spacer";
 import css from "../styles/index.module.css";
+import cssCard from "../styles/components/card.module.css";
 import Header from "../components/Header";
+import Ellipsis from "../components/Ellipsis";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
@@ -125,37 +127,21 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                     ref={props.sectionRefs[1]}
                 >
                     <div className={css.title}>
-                        <h2>
-                            <span className={css.colored}>Track</span> your
-                            operations
-                        </h2>
+                        <h2>Our Features</h2>
+                        <Ellipsis />
                     </div>
-                    <div className={css.grid}>
-                        <Card
-                            title="Spot"
-                            description="Your purchased assets and their price in real time."
-                        />
-                        <Card
-                            title="Leverage"
-                            description="Your leveraged positions and their PnL."
-                        />
-                        <Card
-                            title="NFTs"
-                            description="Your profits on NFT flipping."
-                        />
+                    <div
+                        className={css.description}
+                        data-scroll
+                        data-scroll-repeat="true"
+                        data-scroll-class={css.foldDown}
+                    >
+                        <p>
+                            We have a wide variety of functionality and tools at
+                            your disposal to make your finances easier.
+                        </p>
                     </div>
-                    <div className={css.title}>
-                        <h2>
-                            <span className={css.colored}>Organize</span> your
-                            expenses
-                        </h2>
-                    </div>
-                    <div className={css.title}>
-                        <h2>
-                            <span className={css.colored}>Link</span> everything
-                            you want
-                        </h2>
-                    </div>
+                    <FeatureGrid />
                 </section>
                 <section
                     className={css.about}
@@ -242,5 +228,75 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 </section>
             </>
         </>
+    );
+}
+
+export function FeatureGrid() {
+    const cardParams = [
+        {
+            title: "Track",
+            description:
+                "Follow the state of all your open positions with live and manual price tracking.",
+            ref: useRef<HTMLDivElement>(null),
+        },
+        {
+            title: "Organize",
+            description:
+                "Keep every kind of asset and operation in its place, as you see fit.",
+            ref: useRef<HTMLDivElement>(null),
+        },
+        {
+            title: "Link",
+            description:
+                "Connect operations, investments, expenses and income to each other.",
+            ref: useRef<HTMLDivElement>(null),
+        },
+        {
+            title: "Analyze",
+            description:
+                "Exploit your data to make better decisions and improve your finances.",
+            ref: useRef<HTMLDivElement>(null),
+        },
+    ];
+    const [lastSelectedCard, setLastSelectedCard] = useState(0);
+
+    const activateRandomCard = () => {
+        cardParams[lastSelectedCard]?.ref.current?.classList.remove(
+            cssCard.active!
+        );
+
+        // Activate a random card
+        const randomCard = Math.floor(Math.random() * cardParams.length);
+        cardParams[randomCard]!.ref.current?.classList.add(cssCard.active!);
+
+        setLastSelectedCard(randomCard);
+    };
+
+    useEffect(() => {
+        const interval = setInterval(activateRandomCard, 8000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
+    return (
+        <div
+            className={css.grid}
+            onMouseEnter={() => {
+                cardParams[lastSelectedCard]?.ref.current?.classList.remove(
+                    cssCard.active!
+                );
+            }}
+        >
+            {cardParams.map((params, index) => (
+                <Card2
+                    ref={params.ref}
+                    key={index}
+                    title={params.title}
+                    description={params.description}
+                />
+            ))}
+        </div>
     );
 }
