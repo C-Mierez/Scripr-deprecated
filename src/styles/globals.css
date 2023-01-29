@@ -44,7 +44,8 @@ body {
         Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
         Helvetica Neue, sans-serif;
 
-    --color-main-900: #04111a;
+    --color-main-900: #00101a;
+    /* --color-main-900: #04111a; */
     /* --color-main-900: #0c041a; */
 
     --color-secondary-300: #f1dcc0;
@@ -151,8 +152,8 @@ a {
 }
 
 ::-moz-selection {
-    background-color: red;
-    color: red;
+    background-color: hsla(0, 0%, 100%, 0.5);
+    color: var(--color-main-900);
 }
 
 /* Firefox */
