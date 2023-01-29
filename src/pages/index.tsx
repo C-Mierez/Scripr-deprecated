@@ -35,11 +35,13 @@ export default function LocomotiveHomePage() {
                     multiplier: 0.9,
                     smartphone: {
                         smooth: true,
-                        multiplier: 1.2,
+                        multiplier: 3,
+                        lerp: 0.1,
                     },
                     tablet: {
                         smooth: true,
-                        multiplier: 1.2,
+                        multiplier: 3,
+                        lerp: 0.1,
                     },
                 }}
                 watch={[]}
