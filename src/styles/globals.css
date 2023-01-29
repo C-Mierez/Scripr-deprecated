@@ -44,8 +44,12 @@ body {
         Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
         Helvetica Neue, sans-serif;
 
-    --color-main-900: #0c041a;
-    --color-secondary-300: #f0d6c2;
+    --color-main-900: #04111a;
+    /* --color-main-900: #0c041a; */
+
+    --color-secondary-300: #f1dcc0;
+    /* --color-secondary-300: #f0d6c2; */
+
     /* Proper one */
     /* --color-accent-500: #b8b8ff;
     --color-accent-500: #9999ff; */
@@ -67,14 +71,16 @@ body {
     /* --color-accent-700: #0e5466;
     --color-accent-500: #80bdba; */
 
-    /* --color-accent-700: #065548;
-    --color-accent-500: #78be9c; */
+    --color-accent-900: #0b1926;
+    --color-accent-800: #092d31;
+    --color-accent-700: #065548;
+    --color-accent-500: #68b690;
 
     /* --color-accent-700: #31354a;
     --color-accent-500: #a39e9e; */
 
     --color-white: #f7f7f7;
-    --color-grey: #c6c6c6;
+    --color-grey: #dddddd;
 
     --gradient-normal: linear-gradient(
         130deg,
