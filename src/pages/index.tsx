@@ -299,6 +299,11 @@ export function FeatureGrid() {
                     cssCard.active!
                 );
             }}
+            onTouchStart={() => {
+                cardParams[lastSelectedCard]?.ref.current?.classList.remove(
+                    cssCard.active!
+                );
+            }}
         >
             {cardParams.map((params, index) => (
                 <Card2
