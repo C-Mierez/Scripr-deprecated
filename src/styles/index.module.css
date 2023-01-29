@@ -58,7 +58,7 @@ span.colored {
     height: 100%;
     width: 100%;
 
-    background: radial-gradient(rgba(255, 255, 255, 0.2) 8%, transparent 8%);
+    background: radial-gradient(rgba(255, 255, 255, 0.15) 8%, transparent 8%);
     background-size: 4.5vh 4.5vh;
     background-position: 0% 0%;
     z-index: 0;
