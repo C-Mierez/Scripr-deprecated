@@ -17,6 +17,7 @@
     "@trpc/next": "10.9.0",
     "@trpc/react-query": "10.9.0",
     "@trpc/server": "10.9.0",
+    "@types/react-transition-group": "^4.4.5",
     "animate.css": "^4.1.1",
     "locomotive-scroll": "^4.1.4",
     "next": "13.1.4",
@@ -25,6 +26,7 @@
     "react-animation-on-scroll": "^5.1.0",
     "react-dom": "18.2.0",
     "react-locomotive-scroll": "^0.2.2",
+    "react-transition-group": "^4.4.5",
     "superjson": "1.12.2",
     "zod": "^3.20.2"
   },
