@@ -272,13 +272,24 @@ export function FeatureGrid() {
         setLastSelectedCard(randomCard);
     };
 
+    // TODO: Fix multiple cards being activated at the same time
     useEffect(() => {
-        const interval = setInterval(activateRandomCard, 8000);
+        const interval = setInterval(() => {
+            cardParams[lastSelectedCard]?.ref.current?.classList.remove(
+                cssCard.active!
+            );
+
+            // Activate a random card
+            const randomCard = Math.floor(Math.random() * cardParams.length);
+            cardParams[randomCard]!.ref.current?.classList.add(cssCard.active!);
+
+            setLastSelectedCard(randomCard);
+        }, 8000);
 
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [lastSelectedCard]);
 
     return (
         <div
