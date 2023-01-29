@@ -180,7 +180,7 @@
 }
 
 .hide {
-    transition: opacity 0.1s ease !important;
+    transition: opacity 0.2s ease !important;
     opacity: 0 !important;
     visibility: hidden;
 }
