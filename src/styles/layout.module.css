@@ -82,6 +82,12 @@
     text-transform: uppercase;
 }
 
+@media (max-width: 600px) {
+    .header .section:first-child * {
+        font-size: 2rem;
+    }
+}
+
 .header .section:last-child {
     gap: calc(var(--padding-side) * 0.6);
 }
