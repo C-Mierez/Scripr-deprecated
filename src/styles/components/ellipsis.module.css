@@ -1,0 +1,62 @@
+.ellipsis {
+    position: relative;
+    aspect-ratio: 1;
+    width: 0.5rem;
+    border-radius: 100%;
+    margin: 0.5em 0;
+}
+
+.ellipsis .dot {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1;
+    width: 0.5rem;
+    border-radius: 100%;
+}
+
+.ellipsis .dot:nth-child(1) {
+    top: 0;
+    right: 200%;
+    background-color: var(--color-secondary-300);
+
+    animation-delay: calc(var(--animation-duration) * 0.2);
+}
+
+.ellipsis .dot:nth-child(2) {
+    top: 0;
+    left: 0;
+    background-color: var(--color-accent-700);
+
+    animation-delay: calc(var(--animation-duration) * 0.4);
+}
+
+.ellipsis .dot:nth-child(3) {
+    top: 0;
+    left: 200%;
+    background-color: var(--color-accent-800);
+
+    animation-delay: calc(var(--animation-duration) * 0.6);
+}
+
+.ellipsis .dot {
+    animation: ellipsis calc(var(--animation-duration) * 5) ease-in-out infinite;
+}
+
+@keyframes ellipsis {
+    0% {
+        translate: 0 -30%;
+        scale: 1.1;
+    }
+    5% {
+        translate: 0 0;
+        scale: 1;
+    }
+    95% {
+        translate: 0 0;
+        scale: 1;
+    }
+    100% {
+        translate: 0 -30%;
+        scale: 1.1;
+    }
+}
