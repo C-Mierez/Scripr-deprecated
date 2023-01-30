@@ -65,3 +65,13 @@ span .ellipsis {
     display: inline-block;
     margin: 0 0.3em;
 }
+
+.dot:nth-child(1).alternate {
+    background-color: var(--color-secondary-300);
+}
+.dot:nth-child(2).alternate {
+    background-color: var(--color-accent-500);
+}
+.dot:nth-child(3).alternate {
+    background-color: var(--color-white);
+}
