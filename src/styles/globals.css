@@ -136,6 +136,24 @@ a {
     text-decoration: none;
 }
 
+input,
+textarea {
+    outline: none;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: none;
+    resize: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 * {
     padding: 0;
     margin: 0;
