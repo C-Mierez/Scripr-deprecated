@@ -12,6 +12,7 @@ import css from "../styles/index.module.css";
 import cssCard from "../styles/components/card.module.css";
 import Header from "../components/Header";
 import Ellipsis from "../components/Ellipsis";
+import Timeline from "../components/Timeline";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
@@ -147,36 +148,16 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                     </div>
                     <FeatureGrid />
                 </section>
+
                 <section
                     className={css.about}
                     data-scroll-section
                     ref={props.sectionRefs[2]}
                 >
-                    <h1>About</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Quos dolorum blanditiis laborum. Aliquam neque sed
-                        eaque ea accusamus tenetur, fuga, molestias adipisci
-                        unde perspiciatis sunt asperiores tempora illum quis
-                        officiis maiores! Recusandae reprehenderit repudiandae
-                        accusantium atque, accusamus dolore tempora eius est
-                        consectetur magnam sequi vitae modi similique tempore
-                        commodi velit quos quia exercitationem facilis sapiente
-                        error fuga qui debitis sed. Maxime accusamus perferendis
-                        inventore, iure eos dolore iusto sequi in ratione soluta
-                        fugit architecto repellat. Repellat quos adipisci
-                        laudantium incidunt voluptate. Quo voluptas quasi
-                        suscipit amet quod quis, ipsam laborum aut officiis
-                        exercitationem obcaecati mollitia consequuntur deleniti
-                        optio. Excepturi iure hic quia sequi natus alias dolorem
-                        sapiente repudiandae quam numquam enim, non consequatur.
-                    </p>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
+                    <div className={css.background_gradient}></div>
+                    <div className={css.content}>
+                        <About />
+                    </div>
                 </section>
                 <section
                     className={css.contact}
@@ -231,6 +212,25 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                     <br />
                 </section>
             </>
+        </>
+    );
+}
+
+export function About() {
+    return (
+        <>
+            <div className={css.title}>
+                <h3>About Us</h3>
+                <h2>
+                    A <span className={css.gradient}>Clearer</span> View of Your
+                    Financial Picture{" "}
+                    <span>
+                        <Ellipsis />
+                    </span>
+                </h2>
+            </div>
+
+            <Timeline />
         </>
     );
 }

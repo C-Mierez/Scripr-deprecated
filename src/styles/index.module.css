@@ -115,7 +115,6 @@ span.colored {
 }
 
 .briefing,
-.about,
 .contact {
     padding-top: var(--height-header);
     width: var(--width-main-responsive);
@@ -330,4 +329,79 @@ span.colored {
     width: 300px;
     margin: 200px auto;
     background-color: var(--color-secondary-300);
+}
+
+.about {
+    --about-margin: calc(var(--height-header) * 4);
+
+    position: relative;
+
+    margin-top: var(--about-margin);
+
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.background_gradient {
+    position: absolute;
+
+    height: var(--about-margin);
+    width: 200%;
+
+    background: linear-gradient(
+        180deg,
+        hsla(0, 0%, 100%, 0.02),
+        var(--color-main-900)
+    );
+
+    rotate: -5deg;
+    top: 0;
+    left: -50%;
+
+    translate: 0 -50%;
+
+    z-index: -100;
+}
+
+.about .content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--width-main-responsive);
+
+    margin: 0 auto;
+}
+
+.about .title {
+    width: 100%;
+
+    margin: 0;
+
+    align-items: flex-start;
+}
+
+.about .title h3 {
+    font-family: var(--font-body);
+
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    text-align: left;
+
+    color: var(--color-grey);
+}
+
+.about .title h2 {
+    text-align: left;
+}
+
+span.gradient {
+    background: var(--gradient-light);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
