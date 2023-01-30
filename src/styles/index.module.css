@@ -336,7 +336,7 @@ span.colored {
 
     position: relative;
 
-    margin-top: var(--about-margin);
+    padding-top: var(--about-margin);
 
     min-height: 100vh;
     min-height: 100dvh;
@@ -358,7 +358,7 @@ span.colored {
     top: 0;
     left: -50%;
 
-    translate: 0 -50%;
+    translate: 0 50%;
 
     z-index: -100;
 }
