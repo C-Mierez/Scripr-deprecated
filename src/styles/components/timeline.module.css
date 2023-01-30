@@ -1,9 +1,9 @@
 .columns {
-    --gap: 1rem;
+    --gap: 2rem;
     --timeline-width: 0.5rem;
 
     display: grid;
-    grid-template-columns: 1fr var(--timeline-width) 1fr;
+    grid-template-columns: 1fr [timelineCol] var(--timeline-width) [contentCol] 1fr;
     grid-gap: var(--gap);
 
     margin: 0 auto;
@@ -12,25 +12,78 @@
     width: var(--width-main-responsive);
 }
 
-.columns > * {
-    /* background-color: red; */
+.col p {
+    font-size: 1.1rem;
+}
+.col:last-child {
+    grid-column-start: contentCol;
+    padding-bottom: 20vh;
+    padding-bottom: 20dvh;
 }
 
 .col > * {
+    position: relative;
     background-color: hsla(0, 0%, 100%, 0.03);
 
-    margin-bottom: var(--margin-bottom);
+    margin-bottom: calc(var(--margin-bottom) * 5);
     padding: calc(var(--padding-side) * 0.5);
 }
 
-.col > *:nth-child(even) {
-    translate: calc(100% + var(--gap) * 2 + var(--timeline-width)) 0;
+.col > *:nth-child(odd) {
+    translate: calc((100% + var(--gap) * 2 + var(--timeline-width)) * -1) 0;
+}
+
+.col > *::after {
+    display: block;
+    content: "";
+
+    position: absolute;
+    top: 0%;
+
+    height: 35%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: var(--gradient-light);
+}
+
+.col > *:nth-child(even)::after {
+    left: calc(-1 * (var(--gap) + var(--timeline-width) * 0.5));
+
+    translate: -50% 0;
+}
+
+.col > *:nth-child(odd)::after {
+    right: calc(-1 * (var(--gap) + var(--timeline-width) * 0.5));
+
+    translate: 50% 0;
 }
 
 .timeline {
     background-color: var(--color-secondary-300);
     border-radius: 100vh;
     overflow: hidden;
+
+    grid-column-start: timelineCol;
+}
+
+.columns::after {
+    --size: 2rem;
+
+    content: "";
+
+    position: absolute;
+    bottom: calc(var(--size) * -0.5);
+    left: calc(50% - var(--size) * 0.5);
+
+    background: var(--color-accent-700);
+
+    height: var(--size);
+    aspect-ratio: 1;
+    border-radius: 100vh;
+
+    z-index: 10;
 }
 
 .fill {
@@ -40,4 +93,63 @@
     border-radius: 0 0 100vh 100vh;
 
     background-color: var(--color-accent-700);
+}
+
+@media (max-width: 600px) {
+    .columns {
+        grid-template-columns: [timelineCol] var(--timeline-width) [contentCol] 1fr;
+    }
+
+    .col > *:nth-child(odd) {
+        translate: 0 0;
+    }
+
+    .col > *:nth-child(odd)::after {
+        left: calc(-1 * (var(--gap) + var(--timeline-width) * 0.5));
+
+        translate: -50% 0;
+    }
+
+    .columns::after {
+        left: calc(0% - var(--size) * 0.5 + var(--timeline-width) * 0.5);
+    }
+
+    .col > *::after {
+        height: min(2.5rem, max(15%, 1.5rem));
+    }
+}
+
+.col > * {
+    opacity: 0;
+    translate: 0 -50%;
+    transition: opacity 200ms ease, translate 200ms ease;
+}
+
+.col p::after {
+    transition: scale 400ms ease;
+    scale: 0;
+}
+
+.col p.itemEnterDone::after {
+    scale: 1;
+}
+
+.itemEnter {
+}
+
+.itemEnterActive {
+}
+
+.itemEnterDone {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.itemExit {
+}
+
+.itemExitActive {
+}
+
+.itemExitDone {
 }
