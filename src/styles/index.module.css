@@ -114,8 +114,7 @@ span.colored {
     width: 100%;
 }
 
-.briefing,
-.contact {
+.briefing {
     padding-top: var(--height-header);
     width: var(--width-main-responsive);
 
@@ -324,13 +323,6 @@ span.colored {
     }
 }
 
-.placeholder {
-    height: 300px;
-    width: 300px;
-    margin: 200px auto;
-    background-color: var(--color-secondary-300);
-}
-
 .about {
     --about-margin: calc(var(--height-header) * 4);
 
@@ -340,6 +332,8 @@ span.colored {
 
     min-height: 100vh;
     min-height: 100dvh;
+
+    z-index: 1; /* One above Contact to allow overlap*/
 }
 
 .background_gradient {
@@ -404,4 +398,110 @@ span.gradient {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.contact {
+    position: relative;
+
+    /* min-height: 100vh;
+    min-height: 100dvh; */
+
+    z-index: 0; /* One below About to allow overlap */
+}
+
+.contact .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: var(--color-accent-700);
+
+    z-index: -1;
+}
+
+.contact .background::after {
+    content: "";
+
+    position: absolute;
+    top: -3vh;
+    left: 0;
+
+    height: 3vh;
+    width: 100%;
+
+    background: var(--color-accent-800);
+}
+
+.contact .background::before {
+    content: "";
+
+    position: absolute;
+    top: -6vh;
+    left: 0;
+
+    height: 6vh;
+    width: 100%;
+
+    background: var(--color-accent-900);
+}
+
+.contact .content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--width-main-responsive);
+
+    margin: 0 auto;
+    padding-bottom: var(--margin-bottom);
+}
+
+.contact .title {
+    margin-top: calc(var(--margin-top) * 1.5);
+}
+
+.contact .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-gap: var(--padding-side); */
+
+    margin-top: calc(var(--margin-top) * 0.4);
+
+    width: var(--width-main-responsive);
+}
+
+.contact .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding: 0 var(--padding-side);
+}
+
+.contact .info * {
+    text-align: right;
+}
+
+.contact .info h2 {
+    font-family: var(--font-main);
+    font-size: 2.5rem;
+    font-weight: normal;
+
+    color: var(--color-secondary-300);
+
+    letter-spacing: var(--main-font-letter-spacing);
+    line-height: var(--main-font-line-height);
+
+    margin-bottom: auto;
+}
+
+.contact .info p {
+    font-size: 1.2rem;
 }

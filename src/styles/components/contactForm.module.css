@@ -1,0 +1,197 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 2rem;
+
+    padding: var(--padding-side);
+
+    box-shadow: 0 0 1rem 0.2rem hsla(0, 0%, 0%, 0.1);
+
+    background-color: hsla(0, 0%, 100%, 0.03);
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+    grid-template-areas:
+        "name surname"
+        "email phone"
+        "message message";
+}
+
+.textfield {
+    --innerPadding: 0.5rem;
+    --fontSize: 1.1rem;
+    --shrinkFactor: 0.8;
+    --padding-top: calc(var(--fontSize) * var(--shrinkFactor));
+
+    position: relative;
+
+    padding-top: var(--padding-top);
+}
+
+.textfield input,
+.textfield textarea {
+    width: 100%;
+    height: calc(var(--fontSize) + var(--innerPadding) * 2);
+    padding: var(--innerPadding);
+
+    border-bottom: 0.15rem solid hsla(0, 0%, 100%, 0.7);
+
+    color: var(--color-white);
+
+    font-size: var(--fontSize);
+    font-family: var(--font-body);
+
+    transition: background-color 0.5s ease;
+}
+
+.textfield .label {
+    position: absolute;
+    top: var(--padding-top);
+
+    height: var(--fontSize);
+
+    font-size: var(--fontSize);
+    color: hsla(0, 0%, 100%, 0.7);
+
+    pointer-events: none;
+
+    transition: 0.2s ease-out;
+}
+
+.textfield input:valid ~ .label,
+.textfield input:focus ~ .label,
+.textfield textarea:valid ~ .label,
+.textfield textarea:focus ~ .label {
+    top: -0.5rem;
+    font-size: calc(var(--fontSize) * var(--shrinkFactor));
+    font-weight: bold;
+    color: var(--color-secondary-300);
+}
+
+.textfield input:valid,
+.textfield input:focus,
+.textfield textarea:valid,
+.textfield textarea:focus {
+    background: hsla(0, 0%, 100%, 0.02);
+}
+
+.textfield:last-child {
+    --size: 10rem;
+    grid-area: message;
+}
+
+.textfield:last-child textarea {
+    height: var(--size);
+}
+
+.textfield:last-child .label {
+    position: absolute;
+    top: calc(var(--size) - var(--innerPadding) * 2);
+
+    height: var(--fontSize);
+
+    font-size: var(--fontSize);
+    color: hsla(0, 0%, 100%, 0.7);
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+}
+
+button.submit {
+    font-size: 1.3rem;
+    font-family: var(--font-main);
+    letter-spacing: calc(var(--main-font-letter-spacing) * 1.5);
+    line-height: var(--main-font-line-height);
+
+    padding: 0.4em 1em 0.5em 1em;
+
+    background: var(--color-secondary-300);
+
+    transition: 0.2s ease;
+
+    animation: changingRadius 1s ease-in-out infinite alternate;
+}
+
+@keyframes changingRadius {
+    0% {
+        border-radius: 0.6em;
+    }
+    100% {
+        border-radius: 0.8em;
+    }
+}
+
+button.submit:hover {
+    translate: 0 -5%;
+    filter: brightness(1.05);
+    border-radius: 0.6em;
+
+    animation: none;
+}
+
+button.submit:active {
+    translate: 0 0;
+    scale: 0.95;
+}
+
+.slideIn {
+    transform: translateX(30%);
+    opacity: 0;
+    animation: slideIn 800ms ease forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideInUp {
+    transform: translateY(30%);
+    opacity: 0;
+    animation: slideInUp 1s ease forwards;
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(30%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form.slideIn {
+    animation-delay: 500ms;
+}
+
+.slideIn:nth-child(1):not(.form) {
+    animation-delay: 1000ms;
+}
+.slideIn:nth-child(2):not(.form) {
+    animation-delay: 1200ms;
+}
+.slideIn:nth-child(3):not(.form) {
+    animation-delay: 1400ms;
+}
+.slideIn:nth-child(4):not(.form) {
+    animation-delay: 1600ms;
+}
+
+.slideInUp:nth-child(5):not(.form) {
+    animation-delay: 1800ms;
+}

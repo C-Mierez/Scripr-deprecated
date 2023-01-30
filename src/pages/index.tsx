@@ -13,6 +13,7 @@ import cssCard from "../styles/components/card.module.css";
 import Header from "../components/Header";
 import Ellipsis from "../components/Ellipsis";
 import Timeline from "../components/Timeline";
+import ContactForm from "../components/ContactForm";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
@@ -133,7 +134,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 >
                     <div className={css.title}>
                         <h2>Our Features</h2>
-                        <Ellipsis />
+                        <Ellipsis alternate={false} />
                     </div>
                     <div
                         className={css.description}
@@ -164,54 +165,54 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                     data-scroll-section
                     ref={props.sectionRefs[3]}
                 >
-                    <h1>Contact</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Quos dolorum blanditiis laborum. Aliquam neque sed
-                        eaque ea accusamus tenetur, fuga, molestias adipisci
-                        unde perspiciatis sunt asperiores tempora illum quis
-                        officiis maiores! Recusandae reprehenderit repudiandae
-                        accusantium atque, accusamus dolore tempora eius est
-                        consectetur magnam sequi vitae modi similique tempore
-                        commodi velit quos quia exercitationem facilis sapiente
-                        error fuga qui debitis sed. Maxime accusamus perferendis
-                        inventore, iure eos dolore iusto sequi in ratione soluta
-                        fugit architecto repellat. Repellat quos adipisci
-                        laudantium incidunt voluptate. Quo voluptas quasi
-                        suscipit amet quod quis, ipsam laborum aut officiis
-                        exercitationem obcaecati mollitia consequuntur deleniti
-                        optio. Excepturi iure hic quia sequi natus alias dolorem
-                        sapiente repudiandae quam numquam enim, non consequatur.
-                        Sequi adipisci dolore illo nisi hic amet ratione fuga
-                        perferendis, voluptatum, incidunt corporis maxime
-                        eveniet itaque assumenda dolorum expedita earum magnam
-                    </p>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
-                    <div className={css.placeholder}></div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <div className={css.background}></div>
+                    <div className={css.content}>
+                        <Contact />
+                    </div>
                 </section>
             </>
+        </>
+    );
+}
+
+export function Contact() {
+    return (
+        <>
+            <div className={css.title}>
+                <h2>Reach Out!</h2>
+                <Ellipsis alternate></Ellipsis>
+            </div>
+            <div className={css.grid}>
+                <div className={css.info}>
+                    <h2
+                        data-scroll
+                        data-scroll-repeat="true"
+                        data-scroll-class={css.foldDown}
+                    >
+                        We would love to hear
+                        <br />
+                        from you
+                    </h2>
+                    <p
+                        data-scroll
+                        data-scroll-repeat="true"
+                        data-scroll-class={css.foldDown}
+                    >
+                        {`We’re always looking to improve Scripr!
+`}
+                    </p>
+                    <br />
+                    <br />
+                    <p
+                        data-scroll
+                        data-scroll-repeat="true"
+                        data-scroll-class={css.foldDown}
+                    >
+                        {`If you have any suggestions, feedback, questions - or just want to say Hi - don’t hesitate to send us a message!`}
+                    </p>
+                </div>
+                <ContactForm />
+            </div>
         </>
     );
 }
@@ -220,12 +221,18 @@ export function About() {
     return (
         <>
             <div className={css.title}>
-                <h3>About Us</h3>
+                <h3
+                    data-scroll
+                    data-scroll-repeat="true"
+                    data-scroll-class={css.foldDown}
+                >
+                    About Us
+                </h3>
                 <h2>
                     A <span className={css.gradient}>Clearer</span> View of Your
                     Financial Picture{" "}
                     <span>
-                        <Ellipsis />
+                        <Ellipsis alternate={false} />
                     </span>
                 </h2>
             </div>
