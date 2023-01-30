@@ -90,6 +90,12 @@ body {
         var(--color-main-900)
     );
 
+    --gradient-light: linear-gradient(
+        130deg,
+        var(--color-accent-500),
+        var(--color-accent-700)
+    );
+
     --animation-delay: 0.5s;
     --animation-duration: 1s;
 
