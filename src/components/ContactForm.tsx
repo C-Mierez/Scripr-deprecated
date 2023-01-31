@@ -6,7 +6,7 @@ export default function ContactForm() {
         <div
             className={css.form}
             data-scroll
-            data-scroll-repeat="true"
+            data-scroll-repeat="false"
             data-scroll-class={css.slideIn}
         >
             <div className={css.fields}>
@@ -26,7 +26,7 @@ export function TextField(props: { label: string }) {
         <div
             className={css.textfield}
             data-scroll
-            data-scroll-repeat="true"
+            data-scroll-repeat="false"
             data-scroll-class={css.slideIn}
         >
             <input type="text" required />
@@ -40,7 +40,7 @@ export function TextArea(props: { label: string }) {
         <div
             className={css.textfield}
             data-scroll
-            data-scroll-repeat="true"
+            data-scroll-repeat="false"
             data-scroll-class={css.slideInUp}
         >
             <textarea required />
