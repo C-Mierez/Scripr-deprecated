@@ -586,7 +586,7 @@ span.gradient {
 .bounce {
     display: inline-block;
     margin-right: 0.1em;
-    animation: bounce 2s ease infinite;
+    animation: bounce 4s ease infinite;
 }
 
 @keyframes bounce {
