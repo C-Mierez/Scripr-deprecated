@@ -256,6 +256,7 @@ export function Footer() {
                     className={css.icon}
                     href="https://github.com/C-Mierez"
                     target={"_blank"}
+                    rel="noreferrer"
                 >
                     <svg
                         viewBox="0 0 42 35"
@@ -283,6 +284,7 @@ export function Footer() {
                     className={css.icon}
                     href="https://twitter.com/CMierez_"
                     target={"_blank"}
+                    rel="noreferrer"
                 >
                     <svg
                         viewBox="0 0 51 45"
@@ -314,6 +316,7 @@ export function Footer() {
                     className={css.icon}
                     href="mailto: carlos.mierez20@gmail.com"
                     target={"_blank"}
+                    rel="noreferrer"
                 >
                     <svg
                         id="Layer_1"
@@ -329,7 +332,7 @@ export function Footer() {
 
             <div className={css.legal}>
                 <p>
-                    By using Scripr, you're agreeing to our{" "}
+                    By using Scripr, {`you're`} agreeing to our{" "}
                     <span>Terms of Service</span> and{" "}
                     <span>Privacy Policy</span>.
                 </p>
