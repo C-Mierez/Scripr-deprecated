@@ -128,10 +128,12 @@
     font-family: var(--font-body);
     font-weight: bold;
     letter-spacing: normal;
+
+    transition: 0.3s ease, color 0s;
+    cursor: pointer;
 }
 
 .section .launch:hover {
-    cursor: pointer;
     user-select: none;
 
     background: linear-gradient(var(--color-main-900), var(--color-main-900))
@@ -143,12 +145,12 @@
             )
             border-box;
     color: var(--color-white);
-    transition: color 0s;
+    translate: 0 -5%;
 }
 
 .section .launch:active {
     color: var(--color-white);
-    transform: scale(0.9);
+    translate: 0 0;
 }
 
 .header.shadow {
@@ -402,14 +404,14 @@
     width: 100%;
     text-align: end;
 
-    transition: scale 0.2s ease, color 0.2s ease;
+    transition: scale 0.2s ease, color 0.2s ease, translate 0.2s ease;
     cursor: pointer;
     opacity: 0;
 }
 
 .items > *:hover {
     color: var(--color-accent-700);
-    scale: 1.05;
+    translate: min(-2%, -1rem) 0;
 }
 
 .items > * {
