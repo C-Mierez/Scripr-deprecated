@@ -76,9 +76,18 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
         }
     };
 
+    let init = false;
+    useEffect(() => {
+        if (scroll && !init) {
+            scroll.scroll.checkResize();
+            init = true;
+        }
+    }, [scroll]);
+
     const [atFooter, setAtFooter] = useState(false);
     let atFooterStop = false;
     useEffect(() => {
+        console.log(scroll);
         if (scroll) {
             scroll.on("scroll", (instance: any) => {
                 if (
