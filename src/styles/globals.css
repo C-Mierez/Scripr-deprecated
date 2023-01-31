@@ -96,6 +96,12 @@ body {
         var(--color-accent-700)
     );
 
+    --gradient-secondary: linear-gradient(
+        130deg,
+        var(--color-white),
+        var(--color-secondary-300)
+    );
+
     --animation-delay: 0.5s;
     --animation-duration: 1s;
 
