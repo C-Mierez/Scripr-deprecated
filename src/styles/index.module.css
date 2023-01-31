@@ -609,6 +609,16 @@ span.gradient {
 }
 
 @media (max-width: 600px) {
+    .bounce {
+        animation: none;
+    }
+
+    .contact .info p span {
+        font-style: italic;
+        font-weight: bold;
+        color: var(--color-secondary-300);
+    }
+
     .contact .grid {
         grid-template-columns: 1fr;
     }

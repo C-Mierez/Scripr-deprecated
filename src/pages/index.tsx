@@ -405,10 +405,8 @@ export function FancyText(props: { text: string }) {
             {props.text.split("").map((char, index) => {
                 return (
                     <span
+                        className={css.bounce}
                         key={index}
-                        data-scroll
-                        data-scroll-repeat="true"
-                        data-scroll-class={css.bounce}
                         style={{ animationDelay: `${index * 0.05}s` }}
                     >
                         {char}
