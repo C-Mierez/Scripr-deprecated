@@ -141,6 +141,18 @@ button.submit:active {
     scale: 0.95;
 }
 
+@media (max-width: 600px) {
+    .fields {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name"
+            "surname"
+            "email"
+            "phone"
+            "message";
+    }
+}
+
 .slideIn {
     transform: translateX(30%);
     opacity: 0;
