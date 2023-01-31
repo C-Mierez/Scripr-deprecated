@@ -25,7 +25,7 @@ export default function Timeline() {
             ref: useRef<HTMLDivElement>(null),
         },
         {
-            text: `We're a small but mighty team of people who are all about helping making finance less overwhelming and more accessible to people.`,
+            text: `We're a small but mighty team of people who are all about helping to make finance less overwhelming and more accessible to people.`,
             ref: useRef<HTMLDivElement>(null),
         },
         {
