@@ -160,7 +160,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                         data-scroll-class={css.fadeIn}
                     >
                         A tool to help you{" "}
-                        <span className={css.colored}>manage</span> your finance
+                        <span className={css.colored}>track</span> your finance
                         and <span className={css.colored}>visualize</span> its
                         performance
                     </p>
@@ -388,11 +388,33 @@ export function Contact() {
                         data-scroll-repeat="true"
                         data-scroll-class={css.slideInLeft}
                     >
-                        {`If you have any suggestions, feedback, questions - or just want to say Hi - don’t hesitate to send us a message!`}
+                        {`If you have any suggestions, feedback, questions `}
+                        <FancyText text="~ or you just want to say Hi ~" />
+                        {` please do not hesitate to send us a message!`}
                     </p>
                 </div>
                 <ContactForm />
             </div>
+        </>
+    );
+}
+
+export function FancyText(props: { text: string }) {
+    return (
+        <>
+            {props.text.split("").map((char, index) => {
+                return (
+                    <span
+                        key={index}
+                        data-scroll
+                        data-scroll-repeat="true"
+                        data-scroll-class={css.bounce}
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                    >
+                        {char}
+                    </span>
+                );
+            })}
         </>
     );
 }

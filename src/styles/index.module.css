@@ -579,6 +579,35 @@ span.gradient {
     font-size: 1.2rem;
 }
 
+.contact .info p span {
+    font-style: italic;
+}
+
+.bounce {
+    display: inline-block;
+    margin-right: 0.1em;
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    0% {
+        color: inherit;
+        transform: translateY(0);
+    }
+    5% {
+        font-weight: bold;
+        color: var(--color-secondary-300);
+        transform: translateY(-0.2em);
+    }
+    10% {
+        color: inherit;
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 600px) {
     .contact .grid {
         grid-template-columns: 1fr;
@@ -589,7 +618,7 @@ span.gradient {
     }
 
     .contact .info h2 {
-        text-align: left;
+        text-align: center;
     }
 
     .contact .info p {
