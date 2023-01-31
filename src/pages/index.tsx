@@ -150,16 +150,18 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                     ref={props.sectionRefs[0]}
                 >
                     <div className={css.background}></div>
-                    <h1>All your Finances</h1>
+                    <h1>
+                        <span>All your Finances</span>
+                    </h1>
                     <h2>in one single place</h2>
                     <p
                         data-scroll
                         data-scroll-repeat="true"
                         data-scroll-class={css.fadeIn}
                     >
-                        A tool in which to{" "}
-                        <span className={css.colored}>manage</span> your assets
-                        and <span className={css.colored}>visualize</span> their
+                        A tool to help you{" "}
+                        <span className={css.colored}>manage</span> your finance
+                        and <span className={css.colored}>visualize</span> its
                         performance
                     </p>
                 </section>
@@ -367,14 +369,14 @@ export function Contact() {
                         data-scroll-repeat="true"
                         data-scroll-class={css.foldDown}
                     >
-                        We would love to hear
+                        We would <span>love</span> to hear
                         <br />
                         from you
                     </h2>
                     <p
                         data-scroll
                         data-scroll-repeat="true"
-                        data-scroll-class={css.foldDown}
+                        data-scroll-class={css.slideInLeft}
                     >
                         {`We’re always looking to improve Scripr!
 `}
@@ -384,7 +386,7 @@ export function Contact() {
                     <p
                         data-scroll
                         data-scroll-repeat="true"
-                        data-scroll-class={css.foldDown}
+                        data-scroll-class={css.slideInLeft}
                     >
                         {`If you have any suggestions, feedback, questions - or just want to say Hi - don’t hesitate to send us a message!`}
                     </p>
