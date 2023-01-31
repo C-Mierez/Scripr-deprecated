@@ -35,6 +35,17 @@ span.colored {
 
     color: var(--color-secondary-300);
 }
+
+.landing h1 span {
+    background: var(--gradient-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-size: 200% 200%;
+    animation: gradientTranslate 10s ease infinite;
+}
+
 .landing h2 {
     font-size: 5vmin;
     font-weight: normal;
@@ -200,6 +211,26 @@ span.colored {
     100% {
         opacity: 1;
         translate: 0% 0%;
+    }
+}
+
+.slideInLeft {
+    animation: slideInLeft calc(var(--animation-duration) * 0.6) ease forwards;
+    opacity: 0;
+}
+
+.slideInLeft:last-child {
+    animation-delay: calc(var(--animation-duration) * 0.3);
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -516,6 +547,32 @@ span.gradient {
     line-height: var(--main-font-line-height);
 
     margin-bottom: auto;
+}
+
+.contact .info h2 span {
+    /* Gradient text */
+    background: var(--gradient-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-size: 400% 400%;
+    animation: gradientTranslate 10s ease infinite;
+}
+
+@keyframes gradientTranslate {
+    0% {
+        background-position: 0% 50%;
+    }
+    30% {
+        background-position: 100% 50%;
+    }
+    60% {
+        background-position: 80% 80%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .contact .info p {
