@@ -121,7 +121,7 @@
 
 .col > * {
     opacity: 0;
-    translate: 0 -50%;
+    translate: 0 40%;
     transition: opacity 200ms ease, translate 200ms ease;
 }
 
@@ -134,22 +134,22 @@
     scale: 1;
 }
 
-.itemEnter {
+/* .itemEnter {
 }
 
 .itemEnterActive {
-}
+} */
 
 .itemEnterDone {
     opacity: 1;
     translate: 0 0;
 }
 
-.itemExit {
+/* .itemExit {
 }
 
 .itemExitActive {
 }
 
 .itemExitDone {
-}
+} */
