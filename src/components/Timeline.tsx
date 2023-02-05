@@ -13,19 +13,23 @@ export default function Timeline() {
 
     const items = [
         {
-            text: `We know that keeping track of your money can be a hassle, so we've combined finance tracking and data analysis all in one place.`,
+            text: `We know that keeping track of your money can be a hassle`,
             ref: useRef<HTMLDivElement>(null),
         },
         {
-            text: `Our goal is to help as many people as possible take control of their finances.`,
+            text: `Our goal is to help as many people as possible take control of their finances`,
             ref: useRef<HTMLDivElement>(null),
         },
         {
-            text: `We believe that everyone should have access to the tools and information they need to make smart financial moves.`,
+            text: `So we've combined finance tracking and data analysis all in one place`,
             ref: useRef<HTMLDivElement>(null),
         },
         {
-            text: `We're a small but mighty team of people who are all about helping to make finance less overwhelming and more accessible to people.`,
+            text: `We believe that everyone should have access to the tools and information they need to make smart financial moves`,
+            ref: useRef<HTMLDivElement>(null),
+        },
+        {
+            text: `We're a small but mighty team of people who are all about helping to make finance less overwhelming and more accessible to people`,
             ref: useRef<HTMLDivElement>(null),
         },
         {
