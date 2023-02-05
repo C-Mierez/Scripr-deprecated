@@ -757,7 +757,7 @@ span.gradient {
     grid-template-columns: 1fr 2fr 1fr;
     grid-gap: var(--padding-side);
 
-    margin-top: calc(var(--margin-top) * 0.4);
+    margin-top: 0;
 
     width: var(--width-main-responsive);
 }

@@ -238,9 +238,6 @@ export function Footer() {
                     <a href="">
                         <p>Support</p>
                     </a>
-                    <a href="">
-                        <p>Resources</p>
-                    </a>
                 </div>
                 <div className={css.newsletter}>
                     <div className={css.title}>Hop into our Newsletter!</div>
