@@ -115,6 +115,14 @@ export default function Header(props: {
                     >
                         Contact
                     </div>
+                    <div
+                        className={currentActiveRefIndex == 4 ? css.active : ""}
+                        onClick={() => {
+                            scroll.scrollTo(props.sectionRefs[4]?.current);
+                        }}
+                    >
+                        Reviews
+                    </div>
                     <div className={css.launch}>Launch</div>
                 </div>
                 <div className={css.menuButton}>
@@ -179,6 +187,17 @@ export default function Header(props: {
                             }}
                         >
                             Contact
+                        </div>
+                        <div
+                            className={
+                                currentActiveRefIndex == 4 ? css.active : ""
+                            }
+                            onClick={() => {
+                                scroll.scrollTo(props.sectionRefs[4]?.current);
+                                setShowMenu(false);
+                            }}
+                        >
+                            Reviews
                         </div>
                         <div className={css.launch}>Launch App</div>
                     </div>

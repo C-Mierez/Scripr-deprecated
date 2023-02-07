@@ -434,6 +434,10 @@
     animation-delay: calc(var(--animation-duration) * 0.8);
 }
 
+.items > *:nth-child(5) {
+    animation-delay: calc(var(--animation-duration) * 1);
+}
+
 @keyframes slideInRight {
     0% {
         opacity: 0;
