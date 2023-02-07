@@ -975,7 +975,9 @@ span.gradient {
     .footer .newsletter {
         align-items: center;
     }
+}
 
+@media (max-width: 850px) {
     .footer .newsletter .form {
         grid-template-columns: 1fr;
     }
@@ -987,4 +989,58 @@ span.gradient {
     .footer .newsletter .form button {
         border-radius: 0.5em;
     }
+}
+
+.testimonials {
+    position: relative;
+
+    min-height: 101vh;
+    min-height: 101dvh;
+    width: 100%;
+
+    background-color: var(--color-accent-700);
+
+    translate: 0 -1vh; /* Prevent weird scrolling artifact between sections */
+
+    isolation: isolate;
+}
+
+.testimonials::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 10vh;
+    width: 100%;
+
+    background: linear-gradient(
+        180deg,
+        hsla(0, 0%, 100%, 0.02),
+        var(--color-accent-700)
+    );
+
+    transform: skewY(3deg);
+
+    z-index: -1;
+}
+
+.testimonials .grid {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 0.5rem;
+
+    padding: 0 var(--padding-side);
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+    transform: skewY(-3deg);
+}
+
+.testimonials .grid > * {
+    background-color: brown;
 }

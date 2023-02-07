@@ -1,21 +1,20 @@
-import { useRef, useEffect, RefObject, useState } from "react";
-import { AnimationOnScroll } from "react-animation-on-scroll";
+import { RefObject, useEffect, useRef, useState } from "react";
 import {
     LocomotiveScrollProvider,
     useLocomotiveScroll,
 } from "react-locomotive-scroll";
+import { CSSTransition } from "react-transition-group";
 
 import Card, { Card2 } from "../components/Card";
+import ContactForm from "../components/ContactForm";
+import Ellipsis from "../components/Ellipsis";
+import Header from "../components/Header";
 import PageRevealer from "../components/PageRevealer";
 import Spacer from "../components/Spacer";
-import css from "../styles/index.module.css";
-import cssCard from "../styles/components/card.module.css";
-import Header from "../components/Header";
-import Ellipsis from "../components/Ellipsis";
+import Testimonials from "../components/testimonials";
 import Timeline from "../components/Timeline";
-import ContactForm from "../components/ContactForm";
-import Image from "next/image";
-import { CSSTransition } from "react-transition-group";
+import cssCard from "../styles/components/card.module.css";
+import css from "../styles/index.module.css";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
@@ -23,11 +22,13 @@ export default function LocomotiveHomePage() {
     const sectionBriefing = useRef<HTMLDivElement>(null);
     const sectionAbout = useRef<HTMLDivElement>(null);
     const sectionContact = useRef<HTMLDivElement>(null);
+    const sectionReview = useRef<HTMLDivElement>(null);
     const sectionRefs = [
         sectionLanding,
         sectionBriefing,
         sectionAbout,
         sectionContact,
+        sectionReview,
     ];
     return (
         <>
@@ -210,8 +211,13 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                         <Contact />
                     </div>
                 </section>
-                {/* TODO User Reviews section */}
-                {/* <section></section> */}
+                <section
+                    className={css.testimonials}
+                    ref={props.sectionRefs[4]}
+                    data-scroll-section
+                >
+                    <Testimonials />
+                </section>
                 <footer
                     className={css.footer}
                     data-scroll-section
