@@ -1,33 +1,29 @@
-import { useLocomotiveScroll } from "react-locomotive-scroll";
-import css from "../styles/layout.module.css";
-import { RefObject, useEffect, useState } from "react";
-import { CSSTransition } from "react-transition-group";
 import { Squash as Hamburger } from "hamburger-react";
+import { RefObject, useEffect, useState } from "react";
+import { useLocomotiveScroll } from "react-locomotive-scroll";
+import { CSSTransition } from "react-transition-group";
+
+import css from "../styles/layout.module.css";
 
 export default function Header(props: {
     sectionRefs: RefObject<HTMLDivElement>[];
 }) {
     const { scroll } = useLocomotiveScroll();
+
+    // Current active section index
     const [currentActiveRefIndex, setCurrentActiveRefIndex] =
         useState<number>(0);
-    const [isScrolling, setIsScrolling] = useState<boolean>(false);
-    let currentDelta = 0;
+
+    // Current active section index (Same as above, but used in the useEffect)
+    // Could this create a race condition?
     let activeRefIndex = 0;
-    // let scrolling = false;
+
+    // Current delta of the scroll (used to determine if the scroll has changed)
+    let currentDelta = 0;
 
     useEffect(() => {
         if (scroll) {
             scroll.on("scroll", (instance: any) => {
-                // // console.log("Start of call ", instance);
-
-                // if (Math.abs(instance.delta.y - instance.scroll.y) < 1) {
-                //     scrolling = false;
-                //     setIsScrolling(false);
-                // } else if (!scrolling) {
-                //     scrolling = true;
-                //     setIsScrolling(true);
-                // }
-
                 // Only run calculation when Delta changes. Scroll value (smoothing) doesn't matter
                 if (currentDelta === instance.delta.y) return;
                 // Update the current delta
@@ -42,13 +38,11 @@ export default function Header(props: {
                     }
 
                     const prevDistance = Math.abs(
-                        // window.screen.height -
                         props.sectionRefs[
                             minIndex
                         ]?.current?.getClientRects()[0]!.top!
                     );
                     let currDistance = Math.abs(
-                        // window.screen.height -
                         props.sectionRefs[
                             currentIndex
                         ]!.current?.getClientRects()[0]!.top!
@@ -69,7 +63,6 @@ export default function Header(props: {
                     // Update the current active section
                     activeRefIndex = minIndex;
                     setCurrentActiveRefIndex(minIndex);
-                    // // console.log("Min ", minIndex);
                 }
             });
         }
@@ -83,11 +76,7 @@ export default function Header(props: {
 
     return (
         <>
-            <header
-                className={`${css.header} ${css.shadow} ${
-                    isScrolling ? css.hide : css.show
-                }`}
-            >
+            <header className={`${css.header} ${css.shadow}`}>
                 <div className={css.section}>
                     <div
                         onClick={() => {
