@@ -3,10 +3,7 @@ import css from "../styles/components/testimonials.module.css";
 import Ellipsis from "./Ellipsis";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
-function mod(n: number, m: number) {
-    return ((n % m) + m) % m;
-}
+import { mod } from "../utils/mod";
 
 export default function Testimonials() {
     const testimonials = [
@@ -170,7 +167,6 @@ export default function Testimonials() {
                             : css.enterActiveRight,
                     }}
                     onEntered={() => {
-                        console.log("Transition done");
                         setIsScrolling(false);
                     }}
                 >
@@ -266,7 +262,7 @@ export function Testimonial(props: {
                     height={50}
                 ></Image>
             </div>
-            <div className={css.cotent}>
+            <div className={css.content}>
                 <p className={css.review}>{props.review}</p>
                 <h3 className={css.name}>{props.name}</h3>
                 <p className={css.title}>{props.title}</p>
