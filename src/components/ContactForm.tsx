@@ -1,5 +1,4 @@
 import css from "../styles/components/contactForm.module.css";
-import Ellipsis from "./Ellipsis";
 
 export default function ContactForm() {
     return (
