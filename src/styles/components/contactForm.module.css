@@ -1,7 +1,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
 
     gap: 2rem;
 
@@ -112,6 +112,8 @@ button.submit {
 
     padding: 0.4em 1em 0.5em 1em;
 
+    align-self: flex-end;
+
     background: var(--color-secondary-300);
 
     transition: 0.2s ease;
@@ -141,7 +143,7 @@ button.submit:active {
     scale: 0.95;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
     .fields {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -150,6 +152,8 @@ button.submit:active {
             "email"
             "phone"
             "message";
+
+        width: 100%;
     }
 }
 
