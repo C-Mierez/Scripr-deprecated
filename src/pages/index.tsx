@@ -1,20 +1,21 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
     LocomotiveScrollProvider,
     useLocomotiveScroll,
 } from "react-locomotive-scroll";
 import { CSSTransition } from "react-transition-group";
 
-import Card, { Card2 } from "../components/Card";
+import { Card } from "../components/Card";
 import ContactForm from "../components/ContactForm";
 import Ellipsis from "../components/Ellipsis";
 import Header from "../components/Header";
 import PageRevealer from "../components/PageRevealer";
 import Spacer from "../components/Spacer";
-import Testimonials from "../components/testimonials";
+import Testimonials from "../components/Testimonials";
 import Timeline from "../components/Timeline";
 import cssCard from "../styles/components/card.module.css";
 import css from "../styles/index.module.css";
+import { HeaderSection } from "../components/Header";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
@@ -23,12 +24,13 @@ export default function LocomotiveHomePage() {
     const sectionAbout = useRef<HTMLDivElement>(null);
     const sectionContact = useRef<HTMLDivElement>(null);
     const sectionReview = useRef<HTMLDivElement>(null);
-    const sectionRefs = [
-        sectionLanding,
-        sectionBriefing,
-        sectionAbout,
-        sectionContact,
-        sectionReview,
+
+    const sectionRefs: HeaderSection[] = [
+        { ref: sectionLanding, title: "Landing" },
+        { ref: sectionBriefing, title: "Briefing" },
+        { ref: sectionAbout, title: "About" },
+        { ref: sectionContact, title: "Contact" },
+        { ref: sectionReview, title: "Review" },
     ];
     return (
         <>
@@ -56,20 +58,20 @@ export default function LocomotiveHomePage() {
             >
                 <Header sectionRefs={sectionRefs} />
                 <main data-scroll-container ref={mainRef}>
-                    <Landing sectionRefs={sectionRefs} />
+                    <Landing headerSections={sectionRefs} />
                 </main>
             </LocomotiveScrollProvider>
         </>
     );
 }
-export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
+export function Landing(props: { headerSections: HeaderSection[] }) {
     const { scroll } = useLocomotiveScroll();
     const sectionFooter = useRef<HTMLDivElement>(null);
 
     const scrollSmoothNextElement = () => {
         if (scroll) {
             scroll.scrollTo(
-                scrollableElements[scrollableElementIndex]?.current,
+                scrollableElements[scrollableElementIndex]?.ref.current,
                 {}
             );
             scrollableElementIndex =
@@ -114,7 +116,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
         };
     }, [scroll]);
 
-    const scrollableElements = props.sectionRefs;
+    const scrollableElements = props.headerSections;
     let scrollableElementIndex = 1;
 
     return (
@@ -148,7 +150,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 <section
                     className={css.landing}
                     data-scroll-section
-                    ref={props.sectionRefs[0]}
+                    ref={props.headerSections[0]!.ref}
                 >
                     <div className={css.background}></div>
                     <h1>
@@ -171,7 +173,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 <section
                     className={css.briefing}
                     data-scroll-section
-                    ref={props.sectionRefs[1]}
+                    ref={props.headerSections[1]!.ref}
                 >
                     <div className={css.title}>
                         <h2>Our Features</h2>
@@ -194,7 +196,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 <section
                     className={css.about}
                     data-scroll-section
-                    ref={props.sectionRefs[2]}
+                    ref={props.headerSections[2]!.ref}
                 >
                     <div className={css.background_gradient}></div>
                     <div className={css.content}>
@@ -204,7 +206,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 <section
                     className={css.contact}
                     data-scroll-section
-                    ref={props.sectionRefs[3]}
+                    ref={props.headerSections[3]!.ref}
                 >
                     <div className={css.background}></div>
                     <div className={css.content}>
@@ -213,7 +215,7 @@ export function Landing(props: { sectionRefs: RefObject<HTMLDivElement>[] }) {
                 </section>
                 <section
                     className={css.testimonials}
-                    ref={props.sectionRefs[4]}
+                    ref={props.headerSections[4]!.ref}
                     data-scroll-section
                 >
                     <Testimonials />
@@ -520,7 +522,7 @@ export function FeatureGrid() {
             }}
         >
             {cardParams.map((params, index) => (
-                <Card2
+                <Card
                     ref={params.ref}
                     key={index}
                     title={params.title}
