@@ -42,6 +42,7 @@
 
 .testimonial {
     position: relative;
+    isolation: isolate;
 
     padding: var(--padding-side);
 
@@ -65,6 +66,8 @@
 
     background-size: 4.5vmin 4.5vmin;
     background-position: 0% 0%;
+
+    z-index: -1;
 }
 
 .testimonial:not(.main) {
