@@ -27,7 +27,7 @@ export default function LocomotiveHomePage() {
 
     const sectionRefs: HeaderSection[] = [
         { ref: sectionLanding, title: "Landing" },
-        { ref: sectionBriefing, title: "Briefing" },
+        { ref: sectionBriefing, title: "Features" },
         { ref: sectionAbout, title: "About" },
         { ref: sectionContact, title: "Contact" },
         { ref: sectionReview, title: "Review" },
