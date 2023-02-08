@@ -5,9 +5,12 @@ import { CSSTransition } from "react-transition-group";
 
 import css from "../styles/layout.module.css";
 
-export default function Header(props: {
-    sectionRefs: RefObject<HTMLDivElement>[];
-}) {
+export type HeaderSection = {
+    ref: RefObject<HTMLDivElement>;
+    title: string;
+};
+
+export default function Header(props: { sectionRefs: HeaderSection[] }) {
     const { scroll } = useLocomotiveScroll();
 
     // Current active section index
@@ -40,12 +43,12 @@ export default function Header(props: {
                     const prevDistance = Math.abs(
                         props.sectionRefs[
                             minIndex
-                        ]?.current?.getClientRects()[0]!.top!
+                        ]?.ref.current?.getClientRects()[0]!.top!
                     );
                     let currDistance = Math.abs(
                         props.sectionRefs[
                             currentIndex
-                        ]!.current?.getClientRects()[0]!.top!
+                        ]!.ref.current?.getClientRects()[0]!.top!
                     );
                     // Invalid if its not being rendered
                     currDistance =
@@ -88,30 +91,23 @@ export default function Header(props: {
                     </div>
                 </div>
                 <div className={css.section}>
-                    <div
-                        className={currentActiveRefIndex == 2 ? css.active : ""}
-                        onClick={() => {
-                            scroll.scrollTo(props.sectionRefs[2]?.current);
-                        }}
-                    >
-                        About
-                    </div>
-                    <div
-                        className={currentActiveRefIndex == 3 ? css.active : ""}
-                        onClick={() => {
-                            scroll.scrollTo(props.sectionRefs[3]?.current);
-                        }}
-                    >
-                        Contact
-                    </div>
-                    <div
-                        className={currentActiveRefIndex == 4 ? css.active : ""}
-                        onClick={() => {
-                            scroll.scrollTo(props.sectionRefs[4]?.current);
-                        }}
-                    >
-                        Reviews
-                    </div>
+                    {props.sectionRefs.map((section, i) => {
+                        // Skip first two sections
+                        if (i < 2) return null;
+                        return (
+                            <div
+                                key={i}
+                                className={
+                                    currentActiveRefIndex == i ? css.active : ""
+                                }
+                                onClick={() => {
+                                    scroll.scrollTo(section.ref.current);
+                                }}
+                            >
+                                {section.title}
+                            </div>
+                        );
+                    })}
                     <div className={css.launch}>Launch</div>
                 </div>
                 <div className={css.menuButton}>
@@ -144,50 +140,25 @@ export default function Header(props: {
                         <div className={css.layer} />
                     </div>
                     <div className={css.items}>
-                        <div
-                            className={
-                                currentActiveRefIndex == 1 ? css.active : ""
-                            }
-                            onClick={() => {
-                                scroll.scrollTo(props.sectionRefs[1]?.current);
-                                setShowMenu(false);
-                            }}
-                        >
-                            Features
-                        </div>
-                        <div
-                            className={
-                                currentActiveRefIndex == 2 ? css.active : ""
-                            }
-                            onClick={() => {
-                                scroll.scrollTo(props.sectionRefs[2]?.current);
-                                setShowMenu(false);
-                            }}
-                        >
-                            About
-                        </div>
-                        <div
-                            className={
-                                currentActiveRefIndex == 3 ? css.active : ""
-                            }
-                            onClick={() => {
-                                scroll.scrollTo(props.sectionRefs[3]?.current);
-                                setShowMenu(false);
-                            }}
-                        >
-                            Contact
-                        </div>
-                        <div
-                            className={
-                                currentActiveRefIndex == 4 ? css.active : ""
-                            }
-                            onClick={() => {
-                                scroll.scrollTo(props.sectionRefs[4]?.current);
-                                setShowMenu(false);
-                            }}
-                        >
-                            Reviews
-                        </div>
+                        {props.sectionRefs.map((section, i) => {
+                            if (i < 1) return null;
+                            return (
+                                <div
+                                    key={i}
+                                    className={
+                                        currentActiveRefIndex == i
+                                            ? css.active
+                                            : ""
+                                    }
+                                    onClick={() => {
+                                        scroll.scrollTo(section.ref.current);
+                                        setShowMenu(false);
+                                    }}
+                                >
+                                    {section.title}
+                                </div>
+                            );
+                        })}
                         <div className={css.launch}>Launch App</div>
                     </div>
                 </div>
