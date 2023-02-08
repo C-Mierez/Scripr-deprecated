@@ -1,7 +1,7 @@
 import css from "../styles/components/timeline.module.css";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { useEffect, useRef, useState } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 export default function Timeline() {
     const { scroll } = useLocomotiveScroll();
@@ -48,7 +48,7 @@ export default function Timeline() {
 
     useEffect(() => {
         if (scroll) {
-            scroll.on("scroll", (instance: any) => {
+            scroll.on("scroll", () => {
                 const rect = timelineRef.current!.getClientRects()[0]!;
 
                 const midHeight = window.innerHeight * 0.5;
@@ -62,8 +62,8 @@ export default function Timeline() {
                 if (rect.top < midHeight && rect.top > endPosition) {
                     const maxConstant = (midHeight - endPosition) / midHeight;
                     const progress =
-                        1 - (rect.top - endPosition) / midHeight / maxConstant; // Magic numbers :D
-                    // console.log(progress);
+                        1 - (rect.top - endPosition) / midHeight / maxConstant;
+
                     timelineRef.current!.style.setProperty(
                         "--progress",
                         progress.toString()
@@ -81,7 +81,6 @@ export default function Timeline() {
 
     useEffect(() => {
         const newShowElements = items.map((v, i) => {
-            // return progress > i / items.length;
             return i == 0
                 ? true
                 : v.ref.current!.getClientRects()[0]!.top <

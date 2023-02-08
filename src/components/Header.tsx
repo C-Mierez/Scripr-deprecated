@@ -1,5 +1,6 @@
 import { Squash as Hamburger } from "hamburger-react";
-import { RefObject, useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import type { RefObject } from "react";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { CSSTransition } from "react-transition-group";
 
@@ -19,18 +20,18 @@ export default function Header(props: { sectionRefs: HeaderSection[] }) {
 
     // Current active section index (Same as above, but used in the useEffect)
     // Could this create a race condition?
-    let activeRefIndex = 0;
+    const activeRefIndex = useRef(0);
 
     // Current delta of the scroll (used to determine if the scroll has changed)
-    let currentDelta = 0;
+    const currentDelta = useRef(0);
 
     useEffect(() => {
         if (scroll) {
             scroll.on("scroll", (instance: any) => {
                 // Only run calculation when Delta changes. Scroll value (smoothing) doesn't matter
-                if (currentDelta === instance.delta.y) return;
+                if (currentDelta.current === instance.delta.y) return;
                 // Update the current delta
-                currentDelta = instance.delta.y;
+                currentDelta.current = instance.delta.y;
 
                 const reduceMinDistanceRef = (
                     minIndex: number,
@@ -61,10 +62,13 @@ export default function Header(props: { sectionRefs: HeaderSection[] }) {
                 };
 
                 // Find the closest section to the top of the screen
-                const minIndex = reduceMinDistanceRef(activeRefIndex, 0);
-                if (minIndex !== activeRefIndex) {
+                const minIndex = reduceMinDistanceRef(
+                    activeRefIndex.current,
+                    0
+                );
+                if (minIndex !== activeRefIndex.current) {
                     // Update the current active section
-                    activeRefIndex = minIndex;
+                    activeRefIndex.current = minIndex;
                     setCurrentActiveRefIndex(minIndex);
                 }
             });

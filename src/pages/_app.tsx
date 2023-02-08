@@ -1,9 +1,9 @@
 import "../styles/globals.css";
 import "animate.css/animate.min.css";
 
-import { Session } from "next-auth";
+import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { AppType } from "next/app";
+import type { AppType } from "next/app";
 
 import { trpc } from "../utils/trpc";
 

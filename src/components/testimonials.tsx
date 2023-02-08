@@ -219,7 +219,12 @@ export default function Testimonials() {
                         setIsScrollingLeft(true);
                     }}
                 >
-                    <img src="/svg/Vector.svg" alt="Scroll Left" />
+                    <Image
+                        src="/svg/Vector.svg"
+                        alt="Scroll Left"
+                        width={50}
+                        height={50}
+                    />
                 </button>
                 <button
                     className={css.scrollButton}
@@ -233,7 +238,12 @@ export default function Testimonials() {
                         setIsScrollingLeft(false);
                     }}
                 >
-                    <img src="/svg/Vector.svg" alt="Scroll Right" />
+                    <Image
+                        src="/svg/Vector.svg"
+                        alt="Scroll Right"
+                        width={50}
+                        height={50}
+                    />
                 </button>
             </div>
             <div>

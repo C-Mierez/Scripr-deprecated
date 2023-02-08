@@ -15,7 +15,7 @@ import Testimonials from "../components/Testimonials";
 import Timeline from "../components/Timeline";
 import cssCard from "../styles/components/card.module.css";
 import css from "../styles/index.module.css";
-import { HeaderSection } from "../components/Header";
+import type { HeaderSection } from "../components/Header";
 
 export default function LocomotiveHomePage() {
     const mainRef = useRef(null);
@@ -79,33 +79,36 @@ export function Landing(props: { headerSections: HeaderSection[] }) {
         }
     };
 
-    let init = false;
+    const init = useRef(false);
+
     useEffect(() => {
-        if (scroll && !init) {
+        if (scroll && !init.current) {
             scroll.scroll.checkResize();
-            init = true;
+            init.current = true;
         }
     }, [scroll]);
 
     const [atFooter, setAtFooter] = useState(false);
-    let atFooterStop = false;
+
+    const atFooterStop = useRef(false);
+
     useEffect(() => {
         console.log(scroll);
         if (scroll) {
-            scroll.on("scroll", (instance: any) => {
+            scroll.on("scroll", () => {
                 if (
-                    !atFooterStop &&
+                    !atFooterStop.current &&
                     sectionFooter.current!.getClientRects()[0]!.top <
                         window.innerHeight
                 ) {
-                    atFooterStop = true;
+                    atFooterStop.current = true;
                     setAtFooter(true);
                 } else if (
-                    atFooterStop &&
+                    atFooterStop.current &&
                     sectionFooter.current!.getClientRects()[0]!.top >
                         window.innerHeight
                 ) {
-                    atFooterStop = false;
+                    atFooterStop.current = false;
                     setAtFooter(false);
                 }
             });
@@ -476,19 +479,6 @@ export function FeatureGrid() {
     ];
     const [lastSelectedCard, setLastSelectedCard] = useState(0);
 
-    const activateRandomCard = () => {
-        cardParams[lastSelectedCard]?.ref.current?.classList.remove(
-            cssCard.active!
-        );
-
-        // Activate a random card
-        const randomCard = Math.floor(Math.random() * cardParams.length);
-        cardParams[randomCard]!.ref.current?.classList.add(cssCard.active!);
-
-        setLastSelectedCard(randomCard);
-    };
-
-    // TODO: Fix multiple cards being activated at the same time
     useEffect(() => {
         const interval = setInterval(() => {
             cardParams[lastSelectedCard]?.ref.current?.classList.remove(
